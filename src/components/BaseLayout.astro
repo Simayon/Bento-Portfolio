@@ -1,0 +1,176 @@
+---
+import '../styles/global.css';
+
+const { title = 'My Astro Blog', description = 'A blog built with Astro' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="header-top">
+                <div class="date-location">
+                    {new Date().toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}
+                </div>
+                <div class="masthead">My Personal Chronicle</div>
+            </div>
+            <div class="header-line"></div>
+            <nav class="main-nav">
+                <a href="/">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="/blog">Blog</a>
+                <span class="nav-separator">|</span>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-line"></div>
+        </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-line"></div>
+            <div class="footer-info">
+                <div class="copyright">
+                    {new Date().getFullYear()} My Personal Chronicle. All rights reserved.
+                </div>
+                <nav class="footer-nav">
+                    <a href="/">Home</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/blog">Blog</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/about">About</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<style>
+    /* Header Styles */
+    .site-header {
+        padding: 2rem 0;
+        background-color: white;
+        border-bottom: 2px solid var(--grey11);
+        margin-bottom: 2rem;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .header-top {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .date-location {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        color: var(--grey6);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .masthead {
+        font-family: 'Times New Roman', serif;
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--grey1);
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    .header-line, .footer-line {
+        height: 2px;
+        background-color: var(--grey11);
+        margin: 1rem 0;
+    }
+
+    .main-nav, .footer-nav {
+        text-align: center;
+        font-family: 'Georgia', serif;
+        padding: 0.5rem 0;
+    }
+
+    .main-nav a, .footer-nav a {
+        color: var(--grey2);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover, .footer-nav a:hover {
+        color: var(--brandcolor);
+    }
+
+    .nav-separator {
+        color: var(--grey11);
+        margin: 0 1rem;
+        font-family: 'Times New Roman', serif;
+    }
+
+    /* Footer Styles */
+    .site-footer {
+        margin-top: 4rem;
+        padding: 2rem 0;
+        background-color: white;
+        border-top: 2px solid var(--grey11);
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .copyright {
+        font-family: 'Georgia', serif;
+        font-size: 0.9rem;
+        color: var(--grey6);
+    }
+
+    @media (max-width: 768px) {
+        .masthead {
+            font-size: 2rem;
+        }
+
+        .footer-info {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-nav {
+            margin-top: 1rem;
+        }
+
+        .header-content, .footer-content {
+            padding: 0 1rem;
+        }
+    }
+</style>

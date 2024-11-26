@@ -1,0 +1,169 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+    <article class="blog-post">
+        <header class="post-header">
+            <div class="post-meta">
+                {new Date(frontmatter.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                })}
+            </div>
+            <h1>{frontmatter.title}</h1>
+            {frontmatter.description && 
+                <p class="post-description">{frontmatter.description}</p>
+            }
+            <div class="header-line"></div>
+        </header>
+
+        <div class="post-content">
+            <slot />
+        </div>
+    </article>
+</BaseLayout>
+
+<style>
+    .blog-post {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: 'Georgia', serif;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 2rem 0;
+    }
+
+    .post-meta {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        color: var(--grey6);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .post-header h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.2;
+        margin: 1rem 0;
+        color: var(--grey1);
+        letter-spacing: -0.02em;
+    }
+
+    .post-description {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: var(--grey3);
+        margin: 1.5rem auto;
+        max-width: 600px;
+        font-style: italic;
+    }
+
+    .header-line {
+        height: 2px;
+        background-color: var(--grey2);
+        width: 100%;
+        margin: 2rem auto 0;
+    }
+
+    .post-content {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--grey2);
+    }
+
+    .post-content :global(p) {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content :global(h2) {
+        font-family: 'Georgia', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 2.5rem 0 1rem;
+        color: var(--grey1);
+    }
+
+    .post-content :global(h3) {
+        font-family: 'Georgia', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem;
+        color: var(--grey1);
+    }
+
+    .post-content :global(ul), .post-content :global(ol) {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+    }
+
+    .post-content :global(li) {
+        margin-bottom: 0.5rem;
+    }
+
+    .post-content :global(blockquote) {
+        border-left: 3px solid var(--grey11);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--grey3);
+    }
+
+    .post-content :global(a) {
+        color: var(--brandcolor);
+        text-decoration: none;
+    }
+
+    .post-content :global(a:hover) {
+        text-decoration: underline;
+    }
+
+    .post-content :global(code) {
+        background-color: var(--grey13);
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 0.9em;
+        font-family: monospace;
+    }
+
+    .post-content :global(pre) {
+        background-color: var(--grey13);
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    .post-content :global(img) {
+        max-width: 100%;
+        height: auto;
+        margin: 2rem auto;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding: 1rem;
+        }
+
+        .post-header h1 {
+            font-size: 2.5rem;
+        }
+
+        .post-description {
+            font-size: 1.1rem;
+        }
+
+        .post-content {
+            font-size: 1.1rem;
+        }
+    }
+</style>

@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../components/BaseLayout.astro';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog Posts">
+    <main class="blog-container">
+        <header class="blog-header">
+            <h1>The Personal Blog</h1>
+            <div class="blog-header-line"></div>
+        </header>
+        
+        <div class="blog-grid">
+            {posts.map((post, index) => (
+                <article class={`blog-article ${index === 0 ? 'featured' : ''}`}>
+                    <h2>
+                        <a href={`/blog/${post.slug}`}>
+                            {post.data.title}
+                        </a>
+                    </h2>
+                    <div class="article-meta">
+                        {new Date(post.data.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </div>
+                    <p class="article-excerpt">{post.data.description}</p>
+                    <a href={`/blog/${post.slug}`} class="read-more">Continue Reading →</a>
+                </article>
+            ))}
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .blog-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: 'Georgia', serif;
+    }
+
+    .blog-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 2rem 0;
+    }
+
+    .blog-header h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        font-family: 'Times New Roman', serif;
+        margin: 0;
+        letter-spacing: -0.02em;
+    }
+
+    .blog-header-line {
+        height: 2px;
+        background-color: var(--grey2);
+        width: 100%;
+        margin: 1rem auto;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+
+    .blog-article {
+        position: relative;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--grey11);
+    }
+
+    .blog-article.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+        border-bottom: 2px solid var(--grey11);
+    }
+
+    .blog-article.featured h2 {
+        font-size: 2.8rem;
+    }
+
+    .blog-article h2 {
+        font-family: 'Georgia', serif;
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+
+    .blog-article h2 a {
+        color: var(--grey1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .blog-article h2 a:hover {
+        color: var(--brandcolor);
+    }
+
+    .article-meta {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        color: var(--grey6);
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .article-excerpt {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--grey3);
+        margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        color: var(--brandcolor);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .blog-container {
+            padding: 1rem;
+        }
+
+        .blog-header h1 {
+            font-size: 3rem;
+        }
+
+        .blog-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .blog-article.featured {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
