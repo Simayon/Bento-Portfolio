@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+---
+
+<BaseLayout title="About - Simayon Thampi">
+    <div class="newspaper-container">
+        <div class="main-article">
+            <h1 class="headline">TECH INNOVATOR PROFILE</h1>
+            <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
+            
+            <div class="lead-paragraph">
+                An intellectually curious design engineer with expertise in Linux kernel development, embedded systems, and driver programming.
+                Passionate about robotics, exploring fields like cybersecurity, web development, and hardware programming.
+            </div>
+
+            <div class="bento-grid">
+                <!-- Professional Summary -->
+                <div class="bento-item featured">
+                    <h3>CURRENT POSITION</h3>
+                    <p class="role">Embedded Design Engineer</p>
+                    <p class="company">Digital Core Technologies Pvt. Ltd.</p>
+                    <p class="period">July 2023 - Present</p>
+                    <ul class="achievements">
+                        <li>Developed kernel device drivers for Linux</li>
+                        <li>Deployed AI models on FPGA boards</li>
+                        <li>Designed custom IoT frameworks</li>
+                    </ul>
+                </div>
+
+                <!-- Skills Highlight -->
+                <div class="bento-item">
+                    <h3>TECHNICAL EXPERTISE</h3>
+                    <div class="skills-grid">
+                        <span>Linux Kernel</span>
+                        <span>Embedded Systems</span>
+                        <span>RTOS</span>
+                        <span>C/C++</span>
+                        <span>Python</span>
+                        <span>Edge AI</span>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="bento-item">
+                    <h3>ACADEMIC BACKGROUND</h3>
+                    <p class="degree">BTech in Robotics & Automation</p>
+                    <p class="institution">Toch Institute of Science and Technology</p>
+                    <p class="grade">CGPA: 9.02</p>
+                </div>
+
+                <!-- Notable Projects -->
+                <div class="bento-item">
+                    <h3>FEATURED PROJECTS</h3>
+                    <div class="project">
+                        <h4>Autonomous Shopping Cart</h4>
+                        <p>Revolutionizing retail with RFID-based autonomous cart system</p>
+                    </div>
+                    <div class="project">
+                        <h4>Custom LLM Web Crawler</h4>
+                        <p>Intelligent web monitoring using multi-agent LLM systems</p>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="bento-item">
+                    <h3>CONTACT PRESS</h3>
+                    <p>📍 Kochi, Ernakulam</p>
+                    <p>📱 +91 89435 21732</p>
+                    <div class="social-links">
+                        <a href="https://simayonthampi.me">Portfolio</a>
+                        <a href="https://github.com/Simayon">GitHub</a>
+                        <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .newspaper-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .headline {
+        font-size: 3rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid #000;
+        padding-bottom: 0.5rem;
+    }
+
+    .subheadline {
+        font-size: 1.5rem;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 2rem;
+    }
+
+    .lead-paragraph {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        font-style: italic;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .bento-item {
+        background: #fff;
+        padding: 1.5rem;
+        border: 1px solid #000;
+        position: relative;
+    }
+
+    .bento-item.featured {
+        grid-column: span 2;
+    }
+
+    .bento-item h3 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #000;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .skills-grid span {
+        background: #f0f0f0;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .project {
+        margin-bottom: 1rem;
+    }
+
+    .project h4 {
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #000;
+    }
+
+    .social-links a:hover {
+        border-bottom-width: 2px;
+    }
+
+    @media (max-width: 768px) {
+        .bento-item.featured {
+            grid-column: span 1;
+        }
+    }
+</style>
