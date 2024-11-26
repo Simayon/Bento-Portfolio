@@ -4,355 +4,305 @@ import BaseLayout from '../components/BaseLayout.astro';
 
 <BaseLayout title="About - Simayon Thampi">
     <main class="about-container">
-        <div class="newspaper-header">
-            <h1 class="headline">THE TECH CHRONICLE</h1>
-            <div class="dateline">Est. 2024 • Volume I • Issue I</div>
-            <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
-        </div>
-        
-        <div class="bento-grid">
-            <!-- Profile Section (Item 0) -->
-            <div class="bento-item item-0">
-                <div class="profile-content">
-                    <div class="profile-image">
-                        <img src="/profile-placeholder.jpg" alt="Simayon Thampi" />
-                        <div class="image-caption">Embedded Systems Engineer</div>
-                    </div>
-                    <div class="lead-paragraph">
-                        <p>An intellectually curious design engineer with expertise in Linux kernel development, embedded systems, and driver programming.</p>
-                        <p>Passionate about robotics, exploring fields like cybersecurity, web development, and hardware programming.</p>
-                        <p>A problem-solver at heart, blending technical expertise with creativity to drive innovation.</p>
-                    </div>
-                </div>
-            </div>
+        <header class="newspaper-header">
+            <div class="newspaper-meta">Vol. I • Issue No. 1 • Est. 2024</div>
+            <h1 class="masthead">THE TECH CHRONICLE</h1>
+            <div class="header-divider"></div>
+            <h2 class="subheadline">Bridging Hardware and Software in the Digital Age</h2>
+        </header>
 
-            <!-- Technical Expertise (Item 1) -->
-            <div class="bento-item item-1">
-                <h3>TECHNICAL EXPERTISE</h3>
-                <div class="expertise-container">
-                    <div class="expertise-item">
-                        <div class="expertise-header">
-                            <span class="expertise-icon">⚙️</span>
-                            <span class="expertise-name">Linux Kernel</span>
-                        </div>
-                        <div class="expertise-bar">
-                            <div class="expertise-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="expertise-item">
-                        <div class="expertise-header">
-                            <span class="expertise-icon">⚡</span>
-                            <span class="expertise-name">RTOS</span>
-                        </div>
-                        <div class="expertise-bar">
-                            <div class="expertise-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="expertise-item">
-                        <div class="expertise-header">
-                            <span class="expertise-icon">🔧</span>
-                            <span class="expertise-name">Embedded Systems</span>
-                        </div>
-                        <div class="expertise-bar">
-                            <div class="expertise-fill" style="width: 92%"></div>
-                        </div>
-                    </div>
-                    <div class="expertise-item">
-                        <div class="expertise-header">
-                            <span class="expertise-icon">💻</span>
-                            <span class="expertise-name">Driver Development</span>
-                        </div>
-                        <div class="expertise-bar">
-                            <div class="expertise-fill" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
+        <article class="lead-article">
+            <div class="article-header">
+                <h2 class="article-title">PROFILE: Simayon Thampi</h2>
+                <p class="article-subtitle">Embedded Systems Engineer at Digital Core Technologies</p>
+                <p class="article-location">Based in Kochi, Ernakulam</p>
             </div>
-
-            <!-- Current Position (Item 2) -->
-            <div class="bento-item item-2">
-                <h3>CURRENT ROLE</h3>
-                <div class="role-content">
-                    <p class="role">Embedded Design Engineer</p>
-                    <p class="company">Digital Core Technologies</p>
-                    <ul class="achievements">
-                        <li>Linux Kernel Development</li>
-                        <li>FPGA Programming</li>
-                        <li>IoT Solutions</li>
-                        <li>RTOS Integration</li>
-                        <li>Device Driver Development</li>
-                    </ul>
+            <div class="article-content">
+                <div class="profile-image">
+                    <img src="/profile-placeholder.jpg" alt="Simayon Thampi" />
+                    <div class="image-caption">Embedded Systems Engineer, Class of 2023</div>
                 </div>
+                <p class="lead-paragraph">
+                    An intellectually curious design engineer with expertise in Linux kernel development, embedded systems, and driver programming.
+                    Passionate about robotics, I explore fields like cybersecurity, web development, and hardware programming. A problem-solver at heart, 
+                    I blend technical expertise with creativity to drive innovation. I stay inspired by books, articles, and emerging technologies, 
+                    aiming to contribute transformative solutions to society.
+                </p>
             </div>
+        </article>
 
-            <!-- Education (Item 3) -->
-            <div class="bento-item item-3">
-                <h3>EDUCATION</h3>
-                <div class="education-content">
-                    <div class="degree-info">
-                        <p class="degree">BTech in Robotics & Automation</p>
+        <div class="newspaper-grid">
+            <section class="column">
+                <article class="expertise-article">
+                    <h3 class="section-title">TECHNICAL EXPERTISE</h3>
+                    <div class="expertise-items">
+                        <div class="expertise-item">
+                            <h4>Embedded Systems</h4>
+                            <ul>
+                                <li>Bare Metal Programming</li>
+                                <li>RTOS Development</li>
+                                <li>Custom Driver Development</li>
+                                <li>Board Bring-up</li>
+                                <li>Firmware Development</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h4>Linux & Operating Systems</h4>
+                            <ul>
+                                <li>Kernel Device Drivers</li>
+                                <li>Buildroot and Yocto</li>
+                                <li>Operating System Design</li>
+                                <li>System Architecture</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-item">
+                            <h4>Edge AI & Robotics</h4>
+                            <ul>
+                                <li>ROS Development</li>
+                                <li>FPGA AI Implementation</li>
+                                <li>Computer Vision</li>
+                                <li>LLM Agent Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tech-stack">
+                    <h3 class="section-title">DEVELOPMENT ARSENAL</h3>
+                    <div class="tech-grid">
+                        <div class="tech-category">
+                            <h4>Microcontroller Platforms</h4>
+                            <ul>
+                                <li>STM32H7 Series</li>
+                                <li>Teensy 4.x</li>
+                                <li>ESP32/8266</li>
+                                <li>ATtiny Series</li>
+                                <li>RISC-V (MilkV Duo S)</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h4>Single Board Computers</h4>
+                            <ul>
+                                <li>Raspberry Pi Series</li>
+                                <li>Wandboard (i.MX6)</li>
+                                <li>Custom Hardware</li>
+                            </ul>
+                        </div>
+                        <div class="tech-category">
+                            <h4>Programming Languages</h4>
+                            <ul>
+                                <li>C/C++</li>
+                                <li>Python</li>
+                                <li>Rust (Learning)</li>
+                                <li>Shell Scripting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="column">
+                <article class="experience-article">
+                    <h3 class="section-title">PROFESSIONAL JOURNEY</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">July 2023 - Present</div>
+                            <div class="timeline-content">
+                                <h4>Digital Core Technologies</h4>
+                                <p class="role">Embedded Design Engineer</p>
+                                <ul class="achievements">
+                                    <li>Developed MIPI CSI-2 Linux driver for thermal camera integration</li>
+                                    <li>Implemented AI models on Xilinx & Custom FPGA boards</li>
+                                    <li>Created custom IoT framework with MQTTS protocol</li>
+                                    <li>Built dual-core webserver combining RTOS and bare metal</li>
+                                    <li>Developed Qt-based device configuration system</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Sept 2022 - June 2023</div>
+                            <div class="timeline-content">
+                                <h4>Trizlabs Pvt Ltd</h4>
+                                <p class="role">Robotics Intern</p>
+                                <ul class="achievements">
+                                    <li>Built autonomous indoor mobile robot with ROS</li>
+                                    <li>Developed threat detection system using LiDAR and OAK-D</li>
+                                    <li>Created P5.js web interface for robot control</li>
+                                    <li>Designed robot chassis using Fusion360</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-line"></div>
+                    </div>
+                </article>
+
+                <article class="education-article">
+                    <h3 class="section-title">ACADEMIC BACKGROUND</h3>
+                    <div class="education-content">
+                        <h4>BTech in Robotics & Automation</h4>
                         <p class="institution">Toch Institute of Science and Technology</p>
                         <p class="grade">CGPA: 9.02</p>
+                        <p class="achievement">Graduated with Minor in Electronics and Communication</p>
                     </div>
-                    <div class="certifications">
-                        <h4>Certifications</h4>
-                        <ul>
-                            <li>FANUC Certified Robot Programmer</li>
-                            <li>Bosch Rexroth Automation Specialist</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Projects (Item 4) -->
-            <div class="bento-item item-4">
-                <h3>FEATURED PROJECTS</h3>
-                <div class="projects-grid">
-                    <div class="project">
-                        <h4 class="project-title">Autonomous Shopping Cart</h4>
-                        <p class="project-desc">RFID-based autonomous system</p>
-                        <div class="tech-tags">
-                            <span class="hashtag">#ComputerVision</span>
-                            <span class="hashtag">#ROS</span>
-                        </div>
-                    </div>
-                    <div class="project">
-                        <h4 class="project-title">Custom LLM Web Crawler</h4>
-                        <p class="project-desc">Multi-agent monitoring system</p>
-                        <div class="tech-tags">
-                            <span class="hashtag">#Python</span>
-                            <span class="hashtag">#LangChain</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Programming Skills (Item 5) -->
-            <div class="bento-item item-5">
-                <h3>PROGRAMMING</h3>
-                <div class="programming-content">
-                    <div class="skills-category">
-                        <h4>Languages</h4>
-                        <div class="skills-grid">
-                            <span>C/C++</span>
-                            <span>Python</span>
-                            <span>Rust</span>
-                            <span>Assembly</span>
-                        </div>
-                    </div>
-                    <div class="skills-category">
-                        <h4>Tools & Frameworks</h4>
-                        <div class="skills-grid">
-                            <span>Git</span>
-                            <span>Docker</span>
-                            <span>ROS</span>
-                            <span>Qt</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact (Item 6) -->
-            <div class="bento-item item-6">
-                <div class="ad-border">
+                <div class="classified-ad">
                     <div class="ad-content">
-                        <div class="ad-eyebrow">-- CLASSIFIED AD --</div>
-                        <div class="ad-headline">TECHNICAL EXPERTISE</div>
-                        <div class="ad-headline-2">AVAILABLE</div>
-                        
-                        <div class="ad-text">
-                            Experienced embedded systems engineer with expertise in Linux kernel development 
-                            seeks challenging opportunities. Currently based in <mark class="highlight-yellow">Kochi, Ernakulam</mark>. 
-                            For immediate consultation, reach out at <mark class="highlight-green">+91 89435 21732</mark>. 
-                            Specialized in driver development, RTOS integration, and hardware programming.
-                        </div>
-
-                        <div class="ad-divider">⎯⎯⎯ DIGITAL PRESENCE ⎯⎯⎯</div>
-                        
-                        <div class="social-links">
-                            <a href="https://simayonthampi.me" class="social-link">Portfolio</a>
-                            <span class="dot">•</span>
-                            <a href="https://github.com/Simayon" class="social-link">GitHub</a>
-                            <span class="dot">•</span>
-                            <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/" class="social-link">LinkedIn</a>
-                        </div>
-
-                        <div class="ad-footer">
-                            *References available upon request
+                        <div class="ad-header">-- CONTACT INFORMATION --</div>
+                        <h3>INNOVATOR AVAILABLE FOR COLLABORATION</h3>
+                        <p>
+                            Experienced embedded systems engineer seeking challenging opportunities in 
+                            <span class="highlight">Kochi, Ernakulam</span>.
+                        </p>
+                        <p class="contact-number">+91 89435 21732</p>
+                        <div class="contact-info">
+                            <div class="social-links">
+                                <a href="https://simayonthampi.me">Portfolio</a>
+                                <span class="separator">•</span>
+                                <a href="https://github.com/Simayon">GitHub</a>
+                                <span class="separator">•</span>
+                                <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+        </div>
 
-            <!-- Experience (Item 7) -->
-            <div class="bento-item item-7">
-                <h3>PREVIOUS ROLE</h3>
-                <div class="experience-content">
-                    <p class="company">Trizlabs Pvt Ltd</p>
-                    <p class="position">Robotics Intern</p>
-                    <p class="duration">Sept 2022 - June 2023</p>
-                    <ul class="highlights">
-                        <li>ROS Development</li>
-                        <li>Sensor Integration</li>
-                    </ul>
+        <footer class="newspaper-footer">
+            <div class="footer-divider">
+                <div class="divider-line"></div>
+                <div class="footer-ornament">※</div>
+                <div class="divider-line"></div>
+            </div>
+            <div class="footer-content">
+                <p class="footer-note">This chronicle was typeset in Playfair Display & Lora</p>
+                <p class="footer-copyright">Copyright 2024 The Tech Chronicle. All rights reserved.</p>
+                <div class="footer-meta">
+                    <span>Volume I</span>
+                    <span class="separator">•</span>
+                    <span>Issue No. 1</span>
+                    <span class="separator">•</span>
+                    <span>Kochi Edition</span>
                 </div>
             </div>
-        </div>
+        </footer>
     </main>
 </BaseLayout>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:wght@400;500;600&display=swap');
 
     .about-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
-        background-color: #fff9f0;
-        color: #1a1a1a;
         font-family: 'Lora', serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+        background-color: #fff9f0;
     }
 
     .newspaper-header {
         text-align: center;
-        border-bottom: 2px solid #1a1a1a;
         margin-bottom: 3rem;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #1a1a1a;
     }
 
-    .headline {
-        font-family: 'Playfair Display', serif;
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin: 0;
-        letter-spacing: -0.5px;
-    }
-
-    .dateline {
+    .newspaper-meta {
         font-family: 'Lora', serif;
-        font-style: italic;
-        margin: 0.5rem 0;
+        font-size: 0.9rem;
         color: #666;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .masthead {
+        font-family: 'Playfair Display', serif;
+        font-size: 4rem;
+        font-weight: 900;
+        margin: 0.5rem 0;
+        letter-spacing: -1px;
+        line-height: 1;
+    }
+
+    .header-divider {
+        width: 100%;
+        height: 2px;
+        background-color: #1a1a1a;
+        margin: 1rem 0;
     }
 
     .subheadline {
         font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 400;
         margin: 1rem 0;
-        padding-top: 1rem;
+        font-style: italic;
     }
 
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(5, minmax(200px, auto));
-        gap: 2rem;
-        margin: 2rem 0;
-    }
-
-    /* Grid Layout Positioning */
-    .item-0 {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 2;
-        border: 2px solid #1a1a1a;
-    }
-
-    .item-1 {
-        grid-column: 3;
-        grid-row: 1;
-        border-left: 2px solid #1a1a1a;
-    }
-
-    .item-2 {
-        grid-column: 3;
-        grid-row: 2 / span 2;
-        border: none;
-        background-color: #f8f4eb;
-    }
-
-    .item-3 {
-        grid-column: 1;
-        grid-row: 3 / span 2;
-        border: 2px solid #1a1a1a;
-    }
-
-    .item-4 {
-        grid-column: 2 / span 2;
-        grid-row: 4;
-        border: none;
-        background-color: #f4ece0;
-    }
-
-    .item-5 {
-        grid-column: 1 / span 2;
-        grid-row: 5 / span 2;
-        border-top: 2px solid #1a1a1a;
-    }
-
-    .item-6 {
-        grid-column: 3;
-        grid-row: 5 / span 2;
-        border: 2px solid #1a1a1a;
-    }
-
-    .item-7 {
-        grid-column: 2;
-        grid-row: 3;
-        border: none;
-        background-color: #f0e8dc;
-    }
-
-    .bento-item {
-        padding: 1.5rem;
-        position: relative;
-    }
-
-    .bento-item h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.4rem;
-        font-weight: 700;
+    .lead-article {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
         border-bottom: 1px solid #1a1a1a;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
     }
 
-    .profile-content {
-        display: flex;
+    .article-header {
+        margin-bottom: 2rem;
+    }
+
+    .article-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-subtitle {
+        font-family: 'Lora', serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #666;
+    }
+
+    .article-content {
+        display: grid;
+        grid-template-columns: 300px 1fr;
         gap: 2rem;
-        height: 100%;
+        align-items: start;
     }
 
     .profile-image {
-        flex: 0 0 200px;
+        width: 100%;
     }
 
     .profile-image img {
         width: 100%;
         height: auto;
-        border: 1px solid #1a1a1a;
         filter: grayscale(100%);
+        border: 1px solid #1a1a1a;
     }
 
     .image-caption {
-        text-align: center;
-        font-style: italic;
-        margin-top: 0.5rem;
         font-size: 0.9rem;
+        font-style: italic;
         color: #666;
+        margin-top: 0.5rem;
+        text-align: center;
     }
 
     .lead-paragraph {
-        flex: 1;
         font-size: 1.2rem;
-        line-height: 1.6;
+        line-height: 1.8;
+        margin: 0;
         padding-left: 1rem;
         border-left: 2px solid #1a1a1a;
     }
 
-    .lead-paragraph p:first-of-type::first-letter {
+    .lead-paragraph::first-letter {
         initial-letter: 3;
         -webkit-initial-letter: 3;
         color: #1a1a1a;
@@ -361,87 +311,154 @@ import BaseLayout from '../components/BaseLayout.astro';
         margin-right: 0.5rem;
     }
 
-    .skills-grid {
+    .newspaper-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.8rem;
-    }
-
-    .skills-grid span {
-        text-align: center;
-        font-size: 0.9rem;
-        padding: 0.5rem;
-        border-bottom: 1px solid #1a1a1a;
-    }
-
-    .projects-grid {
-        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
 
-    .project {
-        padding: 1.5rem;
-        position: relative;
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #1a1a1a;
+    }
+
+    .expertise-items {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .expertise-item {
+        padding: 1rem;
+        background-color: #fff;
+        border: 1px solid #1a1a1a;
+    }
+
+    .expertise-item h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .expertise-item ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0;
         border-left: 2px solid #1a1a1a;
     }
 
-    .project-title {
+    .expertise-item li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+        margin: 0 1rem;
+    }
+
+    .timeline-line {
+        position: absolute;
+        left: 1rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #1a1a1a;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 1rem;
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background: #fff;
+        border: 2px solid #1a1a1a;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .timeline-date {
         font-family: 'Playfair Display', serif;
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
         color: #1a1a1a;
-    }
-
-    .project-desc {
-        font-family: 'Lora', serif;
         font-style: italic;
-        color: #666;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
     }
 
-    .tech-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1rem;
+    .timeline-content {
+        background: #fff;
+        padding: 1.5rem;
+        border: 1px solid #1a1a1a;
+        position: relative;
     }
 
-    .hashtag {
-        font-family: 'Lora', serif;
+    .timeline-content::before {
+        content: '';
+        position: absolute;
+        left: -0.5rem;
+        top: 1rem;
+        width: 1rem;
+        height: 1px;
+        background: #1a1a1a;
+    }
+
+    .timeline-content h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin: 0 0 0.5rem 0;
+        font-weight: 700;
+    }
+
+    .education-content {
+        padding: 1.5rem;
+        background-color: #fff;
+        border: 1px solid #1a1a1a;
+    }
+
+    .education-content h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .institution {
+        font-style: italic;
+        margin: 0.5rem 0;
+    }
+
+    .grade {
         font-size: 0.9rem;
         color: #666;
-        transition: color 0.2s ease;
+        margin-top: 0.5rem;
     }
 
-    .hashtag:hover {
-        color: #1a1a1a;
-    }
-
-    .achievements, .highlights {
-        list-style: none;
-        padding-left: 1rem;
-        border-left: 2px solid #1a1a1a;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .achievements li, .highlights li {
-        margin-bottom: 0.8rem;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-
-    .achievements li::before, .highlights li::before {
-        content: "→";
-        position: absolute;
-        left: 0;
-        color: #1a1a1a;
-    }
-
-    /* Contact Ad Styling */
-    .ad-border {
+    .classified-ad {
+        margin-top: 2rem;
         border: 2px solid #1a1a1a;
         padding: 2px;
     }
@@ -449,9 +466,10 @@ import BaseLayout from '../components/BaseLayout.astro';
     .ad-content {
         padding: 1.5rem;
         text-align: center;
+        background-color: #fff;
     }
 
-    .ad-eyebrow {
+    .ad-header {
         font-family: 'Lora', serif;
         font-size: 0.8rem;
         letter-spacing: 2px;
@@ -459,147 +477,179 @@ import BaseLayout from '../components/BaseLayout.astro';
         color: #666;
     }
 
-    .ad-headline {
+    .ad-content h3 {
         font-family: 'Playfair Display', serif;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 900;
-        line-height: 1;
-        margin: 0;
+        margin: 0.5rem 0;
+        line-height: 1.2;
     }
 
-    .ad-headline-2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.5rem;
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 1rem;
-    }
-
-    .ad-text {
-        font-family: 'Lora', serif;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-        margin: 2rem 0;
-        padding: 0 0.5rem;
-    }
-
-    mark.highlight-yellow {
-        background: linear-gradient(120deg, rgba(255, 246, 0, 0.3) 0%, rgba(255, 246, 0, 0.3) 100%);
+    .highlight {
+        background: linear-gradient(120deg, rgba(255, 246, 0, 0.2) 0%, rgba(255, 246, 0, 0.2) 100%);
         padding: 0 4px;
-        font-weight: 600;
     }
 
-    mark.highlight-green {
-        background: linear-gradient(120deg, rgba(77, 255, 77, 0.2) 0%, rgba(77, 255, 77, 0.2) 100%);
-        padding: 0 4px;
-        font-weight: 600;
-    }
-
-    .ad-divider {
-        font-family: 'Lora', serif;
-        font-size: 0.8rem;
-        color: #666;
-        margin: 1.5rem 0;
-        letter-spacing: 1px;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.8rem;
-        margin: 1rem 0;
-    }
-
-    .social-link {
-        color: #1a1a1a;
-        text-decoration: none;
-        font-family: 'Lora', serif;
-        font-size: 0.9rem;
-        padding: 0.3rem 0;
-        border-bottom: 1px solid #1a1a1a;
-    }
-
-    .dot {
-        color: #666;
-        font-size: 0.8rem;
-    }
-
-    .ad-footer {
-        font-family: 'Lora', serif;
-        font-size: 0.8rem;
-        font-style: italic;
-        color: #666;
+    .contact-info {
         margin-top: 1.5rem;
         padding-top: 1rem;
         border-top: 1px solid #ddd;
     }
 
-    .expertise-container {
+    .social-links {
         display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-        padding: 0.5rem;
-    }
-
-    .expertise-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .expertise-header {
-        display: flex;
+        justify-content: center;
+        gap: 1rem;
         align-items: center;
-        gap: 0.8rem;
     }
 
-    .expertise-icon {
-        font-size: 1.2rem;
-        min-width: 1.5rem;
-        text-align: center;
-    }
-
-    .expertise-name {
+    .social-links a {
+        color: #1a1a1a;
+        text-decoration: none;
         font-family: 'Lora', serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #1a1a1a;
+    }
+
+    .separator {
+        color: #666;
+    }
+
+    .tech-grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .tech-category {
+        background: #fff;
+        padding: 1.5rem;
+        border: 1px solid #1a1a1a;
+    }
+
+    .tech-category h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
         font-weight: 600;
+    }
+
+    .tech-category ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0;
+        border-left: 2px solid #1a1a1a;
+    }
+
+    .tech-category li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .achievements {
+        list-style: none;
+        padding-left: 0;
+        margin: 1rem 0 0 0;
+    }
+
+    .achievements li {
+        position: relative;
+        padding-left: 1.2rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .achievements li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
         color: #1a1a1a;
     }
 
-    .expertise-bar {
-        height: 3px;
-        background-color: #e0e0e0;
-        border-radius: 2px;
-        overflow: hidden;
+    .contact-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        margin: 1rem 0;
+        font-weight: 600;
     }
 
-    .expertise-fill {
-        height: 100%;
+    .article-location {
+        font-family: 'Lora', serif;
+        font-size: 1rem;
+        color: #666;
+        margin-top: 0.25rem;
+    }
+
+    .newspaper-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        text-align: center;
+    }
+
+    .footer-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .divider-line {
+        height: 1px;
         background-color: #1a1a1a;
-        transition: width 1s ease-out;
+        flex-grow: 1;
+        margin: 0 1rem;
+        max-width: 200px;
+    }
+
+    .footer-ornament {
+        font-size: 1.5rem;
+        color: #1a1a1a;
+        margin: 0 1rem;
+    }
+
+    .footer-content {
+        font-family: 'Lora', serif;
+        color: #666;
+    }
+
+    .footer-note {
+        font-style: italic;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-copyright {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-meta {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .footer-meta .separator {
+        margin: 0 0.5rem;
     }
 
     @media (max-width: 768px) {
-        .bento-grid {
+        .about-container {
+            padding: 1rem;
+        }
+
+        .masthead {
+            font-size: 2.5rem;
+        }
+
+        .article-content {
             grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            gap: 1.5rem;
         }
 
-        .item-0, .item-1, .item-2, .item-3, .item-4, .item-5, .item-6, .item-7 {
-            grid-column: 1;
-            grid-row: auto;
-        }
-
-        .profile-content {
-            flex-direction: column;
+        .newspaper-grid {
+            grid-template-columns: 1fr;
         }
 
         .profile-image {
-            flex: 0 0 auto;
-            width: 100%;
             max-width: 300px;
             margin: 0 auto;
         }
@@ -607,17 +657,11 @@ import BaseLayout from '../components/BaseLayout.astro';
         .lead-paragraph {
             padding-left: 0;
             border-left: none;
-            border-top: 2px solid #1a1a1a;
-            padding-top: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .headline {
-            font-size: 2.5rem;
-        }
-
-        .subheadline {
-            font-size: 1.4rem;
+        .divider-line {
+            max-width: 100px;
         }
     }
 </style>
