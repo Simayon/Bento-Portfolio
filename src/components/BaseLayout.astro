@@ -17,6 +17,8 @@ const { title = 'My Astro Blog', description = 'A blog built with Astro' } = Ast
         <div class="header-content">
             <div class="header-top">
                 <div class="date-location">
+                    <span class="location">SILICON VALLEY EDITION</span>
+                    <span class="dot">•</span>
                     {new Date().toLocaleDateString('en-US', {
                         weekday: 'long',
                         year: 'numeric',
@@ -24,15 +26,18 @@ const { title = 'My Astro Blog', description = 'A blog built with Astro' } = Ast
                         day: 'numeric'
                     })}
                 </div>
-                <div class="masthead">My Personal Chronicle</div>
+                <!-- <div class="masthead">THE PERSONAL CHRONICLE</div> -->
+                <!-- <div class="edition">DIGITAL EDITION</div> -->
             </div>
             <div class="header-line"></div>
             <nav class="main-nav">
-                <a href="/">Home</a>
-                <span class="nav-separator">|</span>
-                <a href="/blog">Blog</a>
-                <span class="nav-separator">|</span>
-                <a href="/about">About</a>
+                <div class="nav-sections">
+                    <a href="/" class="nav-item">FRONT PAGE</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/blog" class="nav-item">ARTICLES</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/about" class="nav-item">ABOUT THE AUTHOR</a>
+                </div>
             </nav>
             <div class="header-line"></div>
         </div>
@@ -63,16 +68,15 @@ const { title = 'My Astro Blog', description = 'A blog built with Astro' } = Ast
 <style>
     /* Header Styles */
     .site-header {
-        padding: 2rem 0;
-        background-color: white;
-        border-bottom: 2px solid var(--grey11);
-        margin-bottom: 2rem;
+        padding: 1rem 0;
+        background-color: #fff;
+        border-bottom: 2px solid #000;
     }
 
     .header-content {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 
     .header-top {
@@ -81,49 +85,67 @@ const { title = 'My Astro Blog', description = 'A blog built with Astro' } = Ast
     }
 
     .date-location {
-        font-family: 'Georgia', serif;
-        font-style: italic;
-        color: var(--grey6);
         font-size: 0.9rem;
+        color: #333;
         margin-bottom: 0.5rem;
     }
 
+    .location {
+        font-weight: 500;
+    }
+
+    .dot {
+        margin: 0 0.5rem;
+    }
+
     .masthead {
-        font-family: 'Times New Roman', serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 3rem;
-        font-weight: 900;
-        color: var(--grey1);
-        letter-spacing: -0.02em;
-        line-height: 1.2;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+        line-height: 1;
+        margin: 0.5rem 0;
     }
 
-    .header-line, .footer-line {
-        height: 2px;
-        background-color: var(--grey11);
-        margin: 1rem 0;
+    .edition {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #333;
+        margin-top: 0.25rem;
     }
 
-    .main-nav, .footer-nav {
-        text-align: center;
-        font-family: 'Georgia', serif;
+    .header-line {
+        border-top: 1px solid #000;
+        margin: 0.5rem 0;
+    }
+
+    .main-nav {
         padding: 0.5rem 0;
+        text-align: center;
     }
 
-    .main-nav a, .footer-nav a {
-        color: var(--grey2);
+    .nav-sections {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-item {
+        color: #000;
         text-decoration: none;
-        font-size: 1.1rem;
-        transition: color 0.2s ease;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
     }
 
-    .main-nav a:hover, .footer-nav a:hover {
-        color: var(--brandcolor);
+    .nav-item:hover {
+        text-decoration: underline;
     }
 
     .nav-separator {
-        color: var(--grey11);
-        margin: 0 1rem;
-        font-family: 'Times New Roman', serif;
+        color: #666;
+        font-weight: 300;
     }
 
     /* Footer Styles */
