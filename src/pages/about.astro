@@ -3,317 +3,415 @@ import BaseLayout from '../components/BaseLayout.astro';
 ---
 
 <BaseLayout title="About - Simayon Thampi">
-    <div class="newspaper-container">
-        <div class="main-article">
-            <h1 class="headline">TECH INNOVATOR PROFILE</h1>
-            <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
-            
-            <!-- Profile Section -->
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="/profile-placeholder.jpg" alt="Simayon Thampi" />
-                    <div class="image-caption">Embedded Systems Engineer at Digital Core Technologies</div>
-                </div>
-                <div class="lead-paragraph">
-                    An intellectually curious design engineer with expertise in Linux kernel development, embedded systems, and driver programming.
-                    Passionate about robotics, exploring fields like cybersecurity, web development, and hardware programming.
-                    A problem-solver at heart, blending technical expertise with creativity to drive innovation.
+    <main class="about-container">
+        <h1 class="headline">TECH INNOVATOR PROFILE</h1>
+        <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
+        
+        <div class="bento-grid">
+            <!-- Profile Section (Item 0) -->
+            <div class="bento-item item-0">
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <img src="/profile-placeholder.jpg" alt="Simayon Thampi" />
+                        <div class="image-caption">Embedded Systems Engineer</div>
+                    </div>
+                    <div class="lead-paragraph">
+                        <p>An intellectually curious design engineer with expertise in Linux kernel development, embedded systems, and driver programming.</p>
+                        <p>Passionate about robotics, exploring fields like cybersecurity, web development, and hardware programming.</p>
+                        <p>A problem-solver at heart, blending technical expertise with creativity to drive innovation.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bento-grid">
-                <!-- Professional Summary -->
-                <div class="bento-item featured no-border">
-                    <div class="section-image">
-                        <img src="/tech-work.jpg" alt="Technical Work" />
-                    </div>
-                    <h3>CURRENT POSITION</h3>
+            <!-- Technical Expertise (Item 1) -->
+            <div class="bento-item item-1">
+                <h3>TECHNICAL EXPERTISE</h3>
+                <div class="skills-grid">
+                    <span>Linux Kernel</span>
+                    <span>RTOS</span>
+                    <span>Embedded Systems</span>
+                    <span>Driver Development</span>
+                </div>
+            </div>
+
+            <!-- Current Position (Item 2) -->
+            <div class="bento-item item-2">
+                <h3>CURRENT ROLE</h3>
+                <div class="role-content">
                     <p class="role">Embedded Design Engineer</p>
-                    <p class="company">Digital Core Technologies Pvt. Ltd.</p>
-                    <p class="period">July 2023 - Present</p>
-                    <div class="achievements">
+                    <p class="company">Digital Core Technologies</p>
+                    <ul class="achievements">
+                        <li>Linux Kernel Development</li>
+                        <li>FPGA Programming</li>
+                        <li>IoT Solutions</li>
+                        <li>RTOS Integration</li>
+                        <li>Device Driver Development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education (Item 3) -->
+            <div class="bento-item item-3">
+                <h3>EDUCATION</h3>
+                <div class="education-content">
+                    <div class="degree-info">
+                        <p class="degree">BTech in Robotics & Automation</p>
+                        <p class="institution">Toch Institute of Science and Technology</p>
+                        <p class="grade">CGPA: 9.02</p>
+                    </div>
+                    <div class="certifications">
+                        <h4>Certifications</h4>
                         <ul>
-                            <li>Developed MIPI CSI-2 driver for thermal camera integration</li>
-                            <li>Deployed AI models on Xilinx & Custom FPGA boards</li>
-                            <li>Designed custom IoT frameworks with MQTTS</li>
-                            <li>Built dual-core webserver with RTOS integration</li>
+                            <li>FANUC Certified Robot Programmer</li>
+                            <li>Bosch Rexroth Automation Specialist</li>
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                <!-- Skills Section -->
-                <div class="bento-item">
-                    <h3>TECHNICAL EXPERTISE</h3>
-                    <div class="tech-grid">
-                        <div class="tech-category">
-                            <h4>Core Skills</h4>
-                            <div class="skills-grid">
-                                <span>Linux Kernel</span>
-                                <span>RTOS</span>
-                                <span>Embedded Systems</span>
-                                <span>Driver Development</span>
-                            </div>
-                        </div>
-                        <div class="tech-category">
-                            <h4>Programming</h4>
-                            <div class="skills-grid">
-                                <span>C/C++</span>
-                                <span>Python</span>
-                                <span>Rust</span>
-                                <span>Assembly</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projects Section -->
-                <div class="bento-item no-border">
-                    <div class="section-image">
-                        <img src="/projects.jpg" alt="Project Showcase" />
-                    </div>
-                    <h3>FEATURED PROJECTS</h3>
-                    <div class="projects-grid">
-                        <div class="project">
-                            <h4>Autonomous Shopping Cart</h4>
-                            <p>Revolutionizing retail with RFID-based autonomous system</p>
+            <!-- Projects (Item 4) -->
+            <div class="bento-item item-4">
+                <h3>FEATURED PROJECTS</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Autonomous Shopping Cart</h4>
+                        <p>RFID-based autonomous system</p>
+                        <div class="tech-tags">
                             <span class="tech-tag">Computer Vision</span>
                             <span class="tech-tag">ROS</span>
                         </div>
-                        <div class="project">
-                            <h4>Custom LLM Web Crawler</h4>
-                            <p>Multi-agent system for automated web monitoring</p>
+                    </div>
+                    <div class="project">
+                        <h4>Custom LLM Web Crawler</h4>
+                        <p>Multi-agent monitoring system</p>
+                        <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">LangChain</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Education -->
-                <div class="bento-item">
-                    <h3>ACADEMIC BACKGROUND</h3>
-                    <div class="education-details">
-                        <p class="degree">BTech in Robotics & Automation</p>
-                        <p class="institution">Toch Institute of Science and Technology</p>
-                        <p class="grade">CGPA: 9.02</p>
-                        <div class="certifications">
-                            <h4>Certifications</h4>
-                            <ul>
-                                <li>FANUC Certified Robot Programmer</li>
-                                <li>Bosch Rexroth Automation Specialist</li>
-                            </ul>
+            <!-- Programming Skills (Item 5) -->
+            <div class="bento-item item-5">
+                <h3>PROGRAMMING</h3>
+                <div class="programming-content">
+                    <div class="skills-category">
+                        <h4>Languages</h4>
+                        <div class="skills-grid">
+                            <span>C/C++</span>
+                            <span>Python</span>
+                            <span>Rust</span>
+                            <span>Assembly</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Contact -->
-                <div class="bento-item contact-ad">
-                    <div class="ad-border">
-                        <div class="ad-content">
-                            <h3>CONTACT FOR OPPORTUNITIES</h3>
-                            <div class="ad-headline">INNOVATIVE ENGINEER</div>
-                            <div class="ad-subheadline">Available for Technical Consultations</div>
-                            <div class="contact-info">
-                                <p class="location">📍 BASED IN KOCHI, ERNAKULAM</p>
-                                <p class="phone">📱 CALL NOW: +91 89435 21732</p>
-                                <div class="social-links">
-                                    <span class="link-label">FIND ME ON:</span>
-                                    <a href="https://simayonthampi.me">Portfolio</a>
-                                    <a href="https://github.com/Simayon">GitHub</a>
-                                    <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
-                                </div>
-                            </div>
-                            <div class="ad-footer">
-                                *Specialized in Embedded Systems & Linux Kernel Development
-                            </div>
+                    <div class="skills-category">
+                        <h4>Tools & Frameworks</h4>
+                        <div class="skills-grid">
+                            <span>Git</span>
+                            <span>Docker</span>
+                            <span>ROS</span>
+                            <span>Qt</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Contact (Item 6) -->
+            <div class="bento-item item-6">
+                <div class="ad-border">
+                    <div class="ad-content">
+                        <h3>CONTACT FOR OPPORTUNITIES</h3>
+                        <div class="ad-headline">INNOVATIVE ENGINEER</div>
+                        <div class="ad-subheadline">Available for Technical Consultations</div>
+                        <div class="contact-info">
+                            <p class="location">📍 BASED IN KOCHI, ERNAKULAM</p>
+                            <p class="phone">📱 CALL NOW: +91 89435 21732</p>
+                            <div class="social-links">
+                                <span class="link-label">FIND ME ON:</span>
+                                <a href="https://simayonthampi.me">Portfolio</a>
+                                <a href="https://github.com/Simayon">GitHub</a>
+                                <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="ad-footer">
+                            *Specialized in Embedded Systems & Linux Kernel Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience (Item 7) -->
+            <div class="bento-item item-7">
+                <h3>PREVIOUS ROLE</h3>
+                <div class="experience-content">
+                    <p class="company">Trizlabs Pvt Ltd</p>
+                    <p class="position">Robotics Intern</p>
+                    <p class="duration">Sept 2022 - June 2023</p>
+                    <ul class="highlights">
+                        <li>ROS Development</li>
+                        <li>Sensor Integration</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 </BaseLayout>
 
 <style>
-    .newspaper-container {
+    .about-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
         font-family: "Times New Roman", Times, serif;
+        background: #fffef8;
     }
 
     .headline {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
         font-weight: 900;
         text-align: center;
         margin-bottom: 0.5rem;
+        border-bottom: 3px double #000;
+        padding-bottom: 0.5rem;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .subheadline {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        text-align: center;
+        font-style: italic;
+        color: #333;
+        margin-bottom: 3rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #000;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, minmax(200px, auto));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .bento-item {
+        background: #fffef8;
+        padding: 1.5rem;
+        transition: transform 0.2s ease;
+        position: relative;
+    }
+
+    .bento-item h3 {
+        font-size: 1.4rem;
+        font-weight: 900;
+        margin-bottom: 1.2rem;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         border-bottom: 2px solid #000;
         padding-bottom: 0.5rem;
     }
 
-    .subheadline {
-        font-size: 1.5rem;
-        text-align: center;
-        font-style: italic;
-        margin-bottom: 2rem;
+    /* Profile Section */
+    .item-0 {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        border: 3px double #000;
+        background: #fffef8;
     }
 
-    .profile-section {
-        display: grid;
-        grid-template-columns: 300px 1fr;
+    /* Technical Expertise */
+    .item-1 {
+        grid-column: 3;
+        grid-row: 1;
+        border: 1px solid #000;
+    }
+
+    /* Current Role */
+    .item-2 {
+        grid-column: 3;
+        grid-row: 2 / span 2;
+        border: none;
+        background: #f4e9d9;
+    }
+
+    /* Education */
+    .item-3 {
+        grid-column: 1;
+        grid-row: 3 / span 2;
+        border: 3px double #000;
+    }
+
+    /* Projects */
+    .item-4 {
+        grid-column: 2 / span 2;
+        grid-row: 4;
+        border: none;
+        background: #f4e9d9;
+    }
+
+    /* Programming */
+    .item-5 {
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 2;
+        border: 1px solid #000;
+    }
+
+    /* Contact */
+    .item-6 {
+        grid-column: 3;
+        grid-row: 5 / span 2;
+        border: 3px double #000;
+        background: #fffef8;
+        padding: 0 !important;
+    }
+
+    /* Experience */
+    .item-7 {
+        grid-column: 2;
+        grid-row: 3;
+        border: none;
+        background: #f4e9d9;
+    }
+
+    .profile-content {
+        display: flex;
         gap: 2rem;
-        margin-bottom: 2rem;
+        height: 100%;
     }
 
     .profile-image {
-        position: relative;
+        flex: 0 0 200px;
     }
 
     .profile-image img {
         width: 100%;
         height: auto;
         filter: grayscale(100%);
+        border: 1px solid #000;
     }
 
     .image-caption {
-        font-style: italic;
-        font-size: 0.9rem;
         text-align: center;
         margin-top: 0.5rem;
+        font-size: 0.9rem;
+        font-style: italic;
+        color: #333;
     }
 
     .lead-paragraph {
+        flex: 1;
         font-size: 1.2rem;
         line-height: 1.6;
+        color: #000;
         font-style: italic;
-        padding: 1rem;
-        border-left: 3px solid #000;
-    }
-
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .bento-item {
-        background: #fff;
-        padding: 1.5rem;
-        border: 1px solid #000;
-        position: relative;
-    }
-
-    .bento-item.no-border {
-        border: none;
-        padding: 0;
-    }
-
-    .bento-item.featured {
-        grid-column: span 2;
-    }
-
-    .section-image {
-        margin-bottom: 1.5rem;
-    }
-
-    .section-image img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        filter: grayscale(100%);
-    }
-
-    .bento-item h3 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #000;
-    }
-
-    .tech-grid {
-        display: grid;
-        gap: 1.5rem;
-    }
-
-    .tech-category h4 {
-        font-weight: bold;
-        margin-bottom: 0.5rem;
+        padding-left: 1rem;
+        border-left: 2px solid #000;
     }
 
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 0.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
     }
 
     .skills-grid span {
-        background: #f0f0f0;
+        background: #f4e9d9;
         padding: 0.5rem;
         text-align: center;
         font-size: 0.9rem;
-    }
-
-    .projects-grid {
-        display: grid;
-        gap: 1.5rem;
+        color: #000;
+        border: 1px solid #000;
     }
 
     .project {
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 1rem;
-    }
-
-    .project:last-child {
-        border-bottom: none;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-left: 2px solid #000;
     }
 
     .project h4 {
         font-weight: bold;
         margin-bottom: 0.5rem;
+        color: #000;
+    }
+
+    .tech-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
     }
 
     .tech-tag {
-        display: inline-block;
-        background: #f0f0f0;
-        padding: 0.25rem 0.5rem;
-        margin-right: 0.5rem;
+        background: #fffef8;
+        padding: 0.2rem 0.6rem;
         font-size: 0.8rem;
-        border-radius: 2px;
+        color: #000;
+        border: 1px solid #000;
     }
 
-    .education-details {
-        display: grid;
-        gap: 1rem;
+    .contact-content {
+        text-align: center;
+        padding: 1rem;
     }
 
-    .certifications ul {
-        list-style-type: none;
-        padding-left: 1rem;
-        border-left: 2px solid #000;
+    .contact-content h3 {
+        font-family: "UnifrakturMaguntia", cursive;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .location, .phone {
+        margin: 0.8rem 0;
+        font-size: 1.1rem;
+        font-weight: bold;
     }
 
     .social-links {
         display: flex;
+        justify-content: center;
         gap: 1rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        border-top: 1px solid #000;
+        padding-top: 1rem;
     }
 
-    .social-links a {
+    .social-link {
         color: #000;
         text-decoration: none;
+        padding: 0.5rem 1rem;
         border-bottom: 1px solid #000;
+        font-weight: bold;
+        transition: border-bottom-width 0.2s ease;
     }
 
-    .social-links a:hover {
+    .social-link:hover {
         border-bottom-width: 2px;
     }
 
-    .contact-ad {
-        border: none !important;
-        padding: 0 !important;
+    .achievements, .highlights {
+        list-style: none;
+        padding-left: 1rem;
+        border-left: 2px solid #000;
     }
 
+    .achievements li, .highlights li {
+        margin-bottom: 0.8rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .achievements li::before, .highlights li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #000;
+    }
+
+    /* Contact Ad Styling */
     .ad-border {
         border: 3px double #000;
         padding: 1px;
@@ -327,7 +425,7 @@ import BaseLayout from '../components/BaseLayout.astro';
         background: #fff;
     }
 
-    .contact-ad h3 {
+    .item-6 h3 {
         font-size: 0.8rem;
         letter-spacing: 2px;
         text-transform: uppercase;
@@ -351,20 +449,20 @@ import BaseLayout from '../components/BaseLayout.astro';
         padding-bottom: 1rem;
     }
 
-    .contact-ad .contact-info {
+    .item-6 .contact-info {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         margin: 1rem 0;
     }
 
-    .contact-ad .location,
-    .contact-ad .phone {
+    .item-6 .location,
+    .item-6 .phone {
         font-size: 1.1rem;
         font-weight: bold;
     }
 
-    .contact-ad .social-links {
+    .item-6 .social-links {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -372,12 +470,12 @@ import BaseLayout from '../components/BaseLayout.astro';
         align-items: center;
     }
 
-    .contact-ad .link-label {
+    .item-6 .link-label {
         font-weight: bold;
         font-size: 0.9rem;
     }
 
-    .contact-ad .social-links a {
+    .item-6 .social-links a {
         color: #000;
         text-decoration: none;
         border-bottom: 1px solid #000;
@@ -385,7 +483,7 @@ import BaseLayout from '../components/BaseLayout.astro';
         font-weight: bold;
     }
 
-    .contact-ad .social-links a:hover {
+    .item-6 .social-links a:hover {
         border-bottom-width: 2px;
     }
 
@@ -398,17 +496,37 @@ import BaseLayout from '../components/BaseLayout.astro';
     }
 
     @media (max-width: 768px) {
-        .bento-item.featured {
-            grid-column: span 1;
+        .bento-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
         }
 
-        .profile-section {
-            grid-template-columns: 1fr;
+        .item-0, .item-1, .item-2, .item-3, .item-4, .item-5, .item-6, .item-7 {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        .profile-content {
+            flex-direction: column;
         }
 
         .profile-image {
+            flex: 0 0 auto;
+            width: 100%;
             max-width: 300px;
             margin: 0 auto;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .lead-paragraph {
+            padding-left: 0;
+            border-left: none;
+            border-top: 2px solid #000;
+            padding-top: 1rem;
+            margin-top: 1rem;
         }
     }
 </style>
