@@ -106,15 +106,25 @@ import BaseLayout from '../components/BaseLayout.astro';
                 </div>
 
                 <!-- Contact -->
-                <div class="bento-item no-border">
-                    <h3>CONTACT PRESS</h3>
-                    <div class="contact-info">
-                        <p>📍 Kochi, Ernakulam</p>
-                        <p>📱 +91 89435 21732</p>
-                        <div class="social-links">
-                            <a href="https://simayonthampi.me">Portfolio</a>
-                            <a href="https://github.com/Simayon">GitHub</a>
-                            <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
+                <div class="bento-item contact-ad">
+                    <div class="ad-border">
+                        <div class="ad-content">
+                            <h3>CONTACT FOR OPPORTUNITIES</h3>
+                            <div class="ad-headline">INNOVATIVE ENGINEER</div>
+                            <div class="ad-subheadline">Available for Technical Consultations</div>
+                            <div class="contact-info">
+                                <p class="location">📍 BASED IN KOCHI, ERNAKULAM</p>
+                                <p class="phone">📱 CALL NOW: +91 89435 21732</p>
+                                <div class="social-links">
+                                    <span class="link-label">FIND ME ON:</span>
+                                    <a href="https://simayonthampi.me">Portfolio</a>
+                                    <a href="https://github.com/Simayon">GitHub</a>
+                                    <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="ad-footer">
+                                *Specialized in Embedded Systems & Linux Kernel Development
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -297,6 +307,94 @@ import BaseLayout from '../components/BaseLayout.astro';
 
     .social-links a:hover {
         border-bottom-width: 2px;
+    }
+
+    .contact-ad {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .ad-border {
+        border: 3px double #000;
+        padding: 1px;
+        margin: 1rem 0;
+    }
+
+    .ad-content {
+        border: 1px solid #000;
+        padding: 1.5rem;
+        text-align: center;
+        background: #fff;
+    }
+
+    .contact-ad h3 {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-bottom: none;
+        margin-bottom: 1rem;
+    }
+
+    .ad-headline {
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 1rem 0;
+        line-height: 1;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .ad-subheadline {
+        font-style: italic;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #000;
+        padding-bottom: 1rem;
+    }
+
+    .contact-ad .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .contact-ad .location,
+    .contact-ad .phone {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .contact-ad .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        align-items: center;
+    }
+
+    .contact-ad .link-label {
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .contact-ad .social-links a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: 1px solid #000;
+        padding: 0.2rem 0;
+        font-weight: bold;
+    }
+
+    .contact-ad .social-links a:hover {
+        border-bottom-width: 2px;
+    }
+
+    .ad-footer {
+        font-size: 0.8rem;
+        font-style: italic;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid #000;
     }
 
     @media (max-width: 768px) {
