@@ -178,8 +178,15 @@ import BaseLayout from '../components/BaseLayout.astro';
                 <div class="divider-line"></div>
             </div>
             <div class="footer-content">
+                <nav class="footer-nav">
+                    <a href="/">Home</a>
+                    <span class="separator">•</span>
+                    <a href="/blog">Blog</a>
+                    <span class="separator">•</span>
+                    <a href="/about">About</a>
+                </nav>
                 <p class="footer-note">This chronicle was typeset in Playfair Display & Lora</p>
-                <p class="footer-copyright">Copyright 2024 The Tech Chronicle. All rights reserved.</p>
+                <p class="footer-copyright">2024 My Personal Chronicle. All rights reserved.</p>
                 <div class="footer-meta">
                     <span>Volume I</span>
                     <span class="separator">•</span>
@@ -630,6 +637,27 @@ import BaseLayout from '../components/BaseLayout.astro';
 
     .footer-meta .separator {
         margin: 0 0.5rem;
+    }
+
+    .footer-nav {
+        margin-bottom: 1.5rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .footer-nav a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0 0.5rem;
+        transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+        color: #666;
+    }
+
+    .footer-nav .separator {
+        color: #666;
     }
 
     @media (max-width: 768px) {
