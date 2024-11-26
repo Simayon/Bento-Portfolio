@@ -6,30 +6,33 @@ const posts = await getCollection('blog');
 posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Blog Posts">
-    <main class="blog-container">
-        <header class="blog-header">
-            <h1>The Personal Blog</h1>
-            <div class="blog-header-line"></div>
-        </header>
-        
-        <div class="blog-grid">
+<BaseLayout title="Technical Insights - Simayon Thampi">
+    <main class="articles-container">
+        <div class="newspaper-header">
+            <h1 class="headline">TECHNICAL INSIGHTS</h1>
+            <div class="dateline">Est. 2024 • Volume I • Issue I</div>
+            <h2 class="subheadline">Exploring Embedded Systems, Linux, and Beyond</h2>
+        </div>
+
+        <div class="articles-grid">
             {posts.map((post, index) => (
-                <article class={`blog-article ${index === 0 ? 'featured' : ''}`}>
-                    <h2>
-                        <a href={`/blog/${post.slug}`}>
+                <article class={`article-card ${index === 0 ? 'featured' : ''}`}>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category">{post.data.category || 'TECH'}</span>
+                            <span class="date">{new Date(post.data.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long'
+                            })}</span>
+                        </div>
+                        <h2 class="article-title">
                             {post.data.title}
-                        </a>
-                    </h2>
-                    <div class="article-meta">
-                        {new Date(post.data.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}
+                        </h2>
+                        <p class="article-excerpt">
+                            {post.data.description}
+                        </p>
+                        <a href={`/blog/${post.slug}`} class="read-more">Read Full Article →</a>
                     </div>
-                    <p class="article-excerpt">{post.data.description}</p>
-                    <a href={`/blog/${post.slug}`} class="read-more">Continue Reading →</a>
                 </article>
             ))}
         </div>
@@ -37,121 +40,150 @@ posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 </BaseLayout>
 
 <style>
-    .blog-container {
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:wght@400;500;600&display=swap');
+
+    .articles-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
-        font-family: 'Georgia', serif;
     }
 
-    .blog-header {
+    .newspaper-header {
         text-align: center;
         margin-bottom: 4rem;
-        padding: 2rem 0;
-    }
-
-    .blog-header h1 {
-        font-size: 4rem;
-        font-weight: 900;
-        font-family: 'Times New Roman', serif;
-        margin: 0;
-        letter-spacing: -0.02em;
-    }
-
-    .blog-header-line {
-        height: 2px;
-        background-color: var(--grey2);
-        width: 100%;
-        margin: 1rem auto;
-    }
-
-    .blog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        padding: 0 1rem;
-    }
-
-    .blog-article {
-        position: relative;
         padding-bottom: 2rem;
-        border-bottom: 1px solid var(--grey11);
+        border-bottom: 2px solid #1a1a1a;
     }
 
-    .blog-article.featured {
-        grid-column: 1 / -1;
+    .headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin: 0;
+        line-height: 1.1;
+        color: #1a1a1a;
+    }
+
+    .dateline {
+        font-family: 'Lora', serif;
+        font-size: 1rem;
+        color: #666;
+        margin: 1rem 0;
+        letter-spacing: 1px;
+    }
+
+    .subheadline {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
+        color: #1a1a1a;
+    }
+
+    .articles-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        padding-bottom: 3rem;
-        margin-bottom: 3rem;
-        border-bottom: 2px solid var(--grey11);
     }
 
-    .blog-article.featured h2 {
-        font-size: 2.8rem;
+    .article-card {
+        border: 1px solid #1a1a1a;
+        padding: 2px;
+        transition: transform 0.2s ease;
     }
 
-    .blog-article h2 {
-        font-family: 'Georgia', serif;
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
+    .article-card:hover {
+        transform: translateY(-2px);
     }
 
-    .blog-article h2 a {
-        color: var(--grey1);
-        text-decoration: none;
-        transition: color 0.2s ease;
+    .article-card.featured {
+        grid-column: 1 / -1;
     }
 
-    .blog-article h2 a:hover {
-        color: var(--brandcolor);
+    .article-content {
+        padding: 2rem;
+        background-color: #fff9f0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .article-meta {
-        font-family: 'Georgia', serif;
-        font-style: italic;
-        color: var(--grey6);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 1rem;
-        font-size: 0.9rem;
+    }
+
+    .category {
+        font-family: 'Lora', serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #1a1a1a;
+    }
+
+    .date {
+        font-family: 'Lora', serif;
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    .article-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        line-height: 1.3;
+        color: #1a1a1a;
+    }
+
+    .featured .article-title {
+        font-size: 2rem;
     }
 
     .article-excerpt {
-        font-size: 1.1rem;
+        font-family: 'Lora', serif;
+        font-size: 1rem;
         line-height: 1.6;
-        color: var(--grey3);
-        margin-bottom: 1.5rem;
+        color: #444;
+        margin: 0 0 1.5rem 0;
+        flex-grow: 1;
     }
 
     .read-more {
-        font-family: 'Georgia', serif;
-        font-style: italic;
-        color: var(--brandcolor);
-        text-decoration: none;
+        font-family: 'Lora', serif;
         font-size: 0.9rem;
+        color: #1a1a1a;
+        text-decoration: none;
+        border-bottom: 1px solid #1a1a1a;
+        align-self: flex-start;
+        transition: color 0.2s ease;
     }
 
     .read-more:hover {
-        text-decoration: underline;
+        color: #666;
     }
 
     @media (max-width: 768px) {
-        .blog-container {
-            padding: 1rem;
-        }
-
-        .blog-header h1 {
-            font-size: 3rem;
-        }
-
-        .blog-grid {
+        .articles-grid {
             grid-template-columns: 1fr;
-            gap: 2rem;
         }
 
-        .blog-article.featured {
-            grid-template-columns: 1fr;
+        .headline {
+            font-size: 2.5rem;
+        }
+
+        .subheadline {
+            font-size: 1.2rem;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .featured .article-title {
+            font-size: 1.5rem;
         }
     }
 </style>
