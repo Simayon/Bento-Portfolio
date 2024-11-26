@@ -4,8 +4,11 @@ import BaseLayout from '../components/BaseLayout.astro';
 
 <BaseLayout title="About - Simayon Thampi">
     <main class="about-container">
-        <h1 class="headline">TECH INNOVATOR PROFILE</h1>
-        <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
+        <div class="newspaper-header">
+            <h1 class="headline">THE TECH CHRONICLE</h1>
+            <div class="dateline">Est. 2024 • Volume I • Issue I</div>
+            <h2 class="subheadline">Simayon Thampi: Bridging Hardware and Software in the Digital Age</h2>
+        </div>
         
         <div class="bento-grid">
             <!-- Profile Section (Item 0) -->
@@ -121,21 +124,29 @@ import BaseLayout from '../components/BaseLayout.astro';
             <div class="bento-item item-6">
                 <div class="ad-border">
                     <div class="ad-content">
-                        <h3>CONTACT FOR OPPORTUNITIES</h3>
-                        <div class="ad-headline">INNOVATIVE ENGINEER</div>
-                        <div class="ad-subheadline">Available for Technical Consultations</div>
-                        <div class="contact-info">
-                            <p class="location">📍 BASED IN KOCHI, ERNAKULAM</p>
-                            <p class="phone">📱 CALL NOW: +91 89435 21732</p>
-                            <div class="social-links">
-                                <span class="link-label">FIND ME ON:</span>
-                                <a href="https://simayonthampi.me">Portfolio</a>
-                                <a href="https://github.com/Simayon">GitHub</a>
-                                <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/">LinkedIn</a>
-                            </div>
+                        <div class="ad-eyebrow">-- CLASSIFIED AD --</div>
+                        <div class="ad-headline">TECHNICAL EXPERTISE</div>
+                        <div class="ad-headline-2">AVAILABLE</div>
+                        
+                        <div class="ad-text">
+                            Experienced embedded systems engineer with expertise in Linux kernel development 
+                            seeks challenging opportunities. Currently based in <mark class="highlight-yellow">Kochi, Ernakulam</mark>. 
+                            For immediate consultation, reach out at <mark class="highlight-green">+91 89435 21732</mark>. 
+                            Specialized in driver development, RTOS integration, and hardware programming.
                         </div>
+
+                        <div class="ad-divider">⎯⎯⎯ DIGITAL PRESENCE ⎯⎯⎯</div>
+                        
+                        <div class="social-links">
+                            <a href="https://simayonthampi.me" class="social-link">Portfolio</a>
+                            <span class="dot">•</span>
+                            <a href="https://github.com/Simayon" class="social-link">GitHub</a>
+                            <span class="dot">•</span>
+                            <a href="https://www.linkedin.com/in/simayon-thampi-ab52b9190/" class="social-link">LinkedIn</a>
+                        </div>
+
                         <div class="ad-footer">
-                            *Specialized in Embedded Systems & Linux Kernel Development
+                            *References available upon request
                         </div>
                     </div>
                 </div>
@@ -159,34 +170,46 @@ import BaseLayout from '../components/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap');
+
     .about-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
-        font-family: "Times New Roman", Times, serif;
-        background: #fffef8;
+        background-color: #fff9f0;
+        color: #1a1a1a;
+        font-family: 'Lora', serif;
+    }
+
+    .newspaper-header {
+        text-align: center;
+        border-bottom: 3px double #1a1a1a;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
     }
 
     .headline {
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 0.5rem;
-        border-bottom: 3px double #000;
-        padding-bottom: 0.5rem;
-        color: #000;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    .dateline {
+        font-family: 'Lora', serif;
+        font-style: italic;
+        margin: 0.5rem 0;
+        color: #666;
     }
 
     .subheadline {
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
-        text-align: center;
-        font-style: italic;
-        color: #333;
-        margin-bottom: 3rem;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #000;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin: 1rem 0;
+        border-top: 1px solid #1a1a1a;
+        padding-top: 1rem;
     }
 
     .bento-grid {
@@ -197,84 +220,72 @@ import BaseLayout from '../components/BaseLayout.astro';
         margin: 2rem 0;
     }
 
-    .bento-item {
-        background: #fffef8;
-        padding: 1.5rem;
-        transition: transform 0.2s ease;
-        position: relative;
-    }
-
-    .bento-item h3 {
-        font-size: 1.4rem;
-        font-weight: 900;
-        margin-bottom: 1.2rem;
-        color: #000;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 2px solid #000;
-        padding-bottom: 0.5rem;
-    }
-
-    /* Profile Section */
+    /* Grid Layout Positioning */
     .item-0 {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
-        border: 3px double #000;
-        background: #fffef8;
+        border: 3px double #1a1a1a;
     }
 
-    /* Technical Expertise */
     .item-1 {
         grid-column: 3;
         grid-row: 1;
-        border: 1px solid #000;
+        border: 1px solid #1a1a1a;
     }
 
-    /* Current Role */
     .item-2 {
         grid-column: 3;
         grid-row: 2 / span 2;
-        border: none;
-        background: #f4e9d9;
+        background: #f8f4eb;
     }
 
-    /* Education */
     .item-3 {
         grid-column: 1;
         grid-row: 3 / span 2;
-        border: 3px double #000;
+        border: 3px double #1a1a1a;
     }
 
-    /* Projects */
     .item-4 {
         grid-column: 2 / span 2;
         grid-row: 4;
-        border: none;
-        background: #f4e9d9;
+        background: #f8f4eb;
     }
 
-    /* Programming */
     .item-5 {
         grid-column: 1 / span 2;
         grid-row: 5 / span 2;
-        border: 1px solid #000;
+        border: 1px solid #1a1a1a;
     }
 
-    /* Contact */
     .item-6 {
         grid-column: 3;
         grid-row: 5 / span 2;
-        border: 3px double #000;
-        background: #fffef8;
+        border: 3px double #1a1a1a;
         padding: 0 !important;
     }
 
-    /* Experience */
     .item-7 {
         grid-column: 2;
         grid-row: 3;
-        border: none;
-        background: #f4e9d9;
+        background: #f8f4eb;
+    }
+
+    .bento-item {
+        background-color: #fff;
+        padding: 1.5rem;
+        position: relative;
+        box-shadow: 3px 3px 0 rgba(26, 26, 26, 0.1);
+    }
+
+    .bento-item h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border-bottom: 2px solid #1a1a1a;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .profile-content {
@@ -290,26 +301,32 @@ import BaseLayout from '../components/BaseLayout.astro';
     .profile-image img {
         width: 100%;
         height: auto;
+        border: 1px solid #1a1a1a;
         filter: grayscale(100%);
-        border: 1px solid #000;
     }
 
     .image-caption {
         text-align: center;
+        font-style: italic;
         margin-top: 0.5rem;
         font-size: 0.9rem;
-        font-style: italic;
-        color: #333;
     }
 
     .lead-paragraph {
         flex: 1;
         font-size: 1.2rem;
         line-height: 1.6;
-        color: #000;
-        font-style: italic;
         padding-left: 1rem;
-        border-left: 2px solid #000;
+        border-left: 2px solid #1a1a1a;
+    }
+
+    .lead-paragraph p:first-of-type::first-letter {
+        initial-letter: 3;
+        -webkit-initial-letter: 3;
+        color: #1a1a1a;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        margin-right: 0.5rem;
     }
 
     .skills-grid {
@@ -319,83 +336,49 @@ import BaseLayout from '../components/BaseLayout.astro';
     }
 
     .skills-grid span {
-        background: #f4e9d9;
+        background: #f8f4eb;
         padding: 0.5rem;
         text-align: center;
         font-size: 0.9rem;
-        color: #000;
-        border: 1px solid #000;
+        border: 1px solid #1a1a1a;
     }
 
     .project {
         padding: 1rem;
         margin-bottom: 1rem;
-        border-left: 2px solid #000;
+        border-left: 2px solid #1a1a1a;
+    }
+
+    .project:last-child {
+        margin-bottom: 0;
     }
 
     .project h4 {
+        font-family: 'Playfair Display', serif;
         font-weight: bold;
         margin-bottom: 0.5rem;
-        color: #000;
     }
 
     .tech-tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         margin-top: 0.5rem;
     }
 
     .tech-tag {
-        background: #fffef8;
+        background: #f8f4eb;
         padding: 0.2rem 0.6rem;
         font-size: 0.8rem;
-        color: #000;
-        border: 1px solid #000;
-    }
-
-    .contact-content {
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .contact-content h3 {
-        font-family: "UnifrakturMaguntia", cursive;
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .location, .phone {
-        margin: 0.8rem 0;
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        border-top: 1px solid #000;
-        padding-top: 1rem;
-    }
-
-    .social-link {
-        color: #000;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border-bottom: 1px solid #000;
-        font-weight: bold;
-        transition: border-bottom-width 0.2s ease;
-    }
-
-    .social-link:hover {
-        border-bottom-width: 2px;
+        border: 1px solid #1a1a1a;
     }
 
     .achievements, .highlights {
         list-style: none;
         padding-left: 1rem;
-        border-left: 2px solid #000;
+        border-left: 2px solid #1a1a1a;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .achievements li, .highlights li {
@@ -408,91 +391,121 @@ import BaseLayout from '../components/BaseLayout.astro';
         content: "→";
         position: absolute;
         left: 0;
-        color: #000;
+        color: #1a1a1a;
     }
 
     /* Contact Ad Styling */
     .ad-border {
-        border: 3px double #000;
-        padding: 1px;
-        margin: 1rem 0;
+        border: 3px double #1a1a1a;
+        padding: 2px;
+        margin: 0;
+        background: #fff9f0;
     }
 
     .ad-content {
-        border: 1px solid #000;
+        border: 1px solid #1a1a1a;
         padding: 1.5rem;
         text-align: center;
         background: #fff;
+        position: relative;
     }
 
-    .item-6 h3 {
+    .ad-eyebrow {
+        font-family: 'Lora', serif;
         font-size: 0.8rem;
         letter-spacing: 2px;
-        text-transform: uppercase;
-        border-bottom: none;
         margin-bottom: 1rem;
+        color: #666;
     }
 
     .ad-headline {
+        font-family: 'Playfair Display', serif;
         font-size: 2rem;
         font-weight: 900;
-        margin: 1rem 0;
         line-height: 1;
-        font-family: "Times New Roman", Times, serif;
+        margin: 0;
     }
 
-    .ad-subheadline {
-        font-style: italic;
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid #000;
-        padding-bottom: 1rem;
+    .ad-headline-2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 1rem;
     }
 
-    .item-6 .contact-info {
+    .ad-text {
+        font-family: 'Lora', serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: left;
+        margin: 2rem 0;
+        padding: 0 0.5rem;
+    }
+
+    mark.highlight-yellow {
+        background: linear-gradient(120deg, rgba(255, 246, 0, 0.4) 0%, rgba(255, 246, 0, 0.4) 100%);
+        padding: 0 4px;
+        border-radius: 2px;
+        font-weight: 600;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+    mark.highlight-green {
+        background: linear-gradient(120deg, rgba(77, 255, 77, 0.3) 0%, rgba(77, 255, 77, 0.3) 100%);
+        padding: 0 4px;
+        border-radius: 2px;
+        font-weight: 600;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+    .ad-divider {
+        font-family: 'Lora', serif;
+        font-size: 0.8rem;
+        color: #666;
+        margin: 1.5rem 0;
+        letter-spacing: 1px;
+    }
+
+    .social-links {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 0.5rem;
         margin: 1rem 0;
     }
 
-    .item-6 .location,
-    .item-6 .phone {
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-
-    .item-6 .social-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
-        align-items: center;
-    }
-
-    .item-6 .link-label {
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-
-    .item-6 .social-links a {
-        color: #000;
+    .social-link {
+        color: #1a1a1a;
         text-decoration: none;
-        border-bottom: 1px solid #000;
-        padding: 0.2rem 0;
-        font-weight: bold;
+        font-family: 'Lora', serif;
+        font-size: 0.9rem;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #1a1a1a;
+        transition: all 0.2s ease;
     }
 
-    .item-6 .social-links a:hover {
+    .dot {
+        color: #666;
+        font-size: 0.8rem;
+    }
+
+    .social-link:hover {
         border-bottom-width: 2px;
     }
 
     .ad-footer {
+        font-family: 'Lora', serif;
         font-size: 0.8rem;
         font-style: italic;
+        color: #666;
         margin-top: 1.5rem;
         padding-top: 1rem;
-        border-top: 1px solid #000;
+        border-top: 1px solid #ddd;
     }
 
     @media (max-width: 768px) {
@@ -517,16 +530,20 @@ import BaseLayout from '../components/BaseLayout.astro';
             margin: 0 auto;
         }
 
-        .skills-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
         .lead-paragraph {
             padding-left: 0;
             border-left: none;
-            border-top: 2px solid #000;
+            border-top: 2px solid #1a1a1a;
             padding-top: 1rem;
             margin-top: 1rem;
+        }
+
+        .headline {
+            font-size: 2.5rem;
+        }
+
+        .subheadline {
+            font-size: 1.4rem;
         }
     }
 </style>
