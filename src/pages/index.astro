@@ -161,7 +161,7 @@ const issueNumber = "No. 51,839";
                 </div>
             </div>
         </section>
-
+       
         <!-- Project Highlights -->
         <section class="bento-item project-highlights">
             <div class="column-header">Project Highlights</div>
@@ -183,6 +183,76 @@ const issueNumber = "No. 51,839";
                     <h4>Cloud Infrastructure</h4>
                     <p>Scalable solutions for modern applications</p>
                 </article>
+            </div>
+        </section>
+
+         <!-- Daily Crossword -->
+         <section class="bento-item daily-crossword">
+            <div class="column-header" style="color: white;">Crossword Puzzle</div>
+            <div class="crossword-container">
+                <div class="game-section">
+                    <div class="crossword-grid">
+                        <!-- 5x5 grid example -->
+                        <div class="grid-row">
+                            <div class="cell" data-number="1" data-word="git"><span class="number">1</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="git"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-number="2" data-word="git,pip"><span class="number">2</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-number="3" data-word="rust"><span class="number">3</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="rust"><input type="text" maxlength="1" /></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="cell"></div>
+                            <div class="cell"></div>
+                            <div class="cell" data-word="pip"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="rust"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="rust"><input type="text" maxlength="1" /></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="cell" data-number="4" data-word="nix"><span class="number">4</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="nix"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="nix,pip"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="tmux"><input type="text" maxlength="1" /></div>
+                            <div class="cell blocked"></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="cell" data-number="5" data-word="nvim"><span class="number">5</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="nvim"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="nvim"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="nvim"><input type="text" maxlength="1" /></div>
+                            <div class="cell blocked"></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="cell" data-number="6" data-word="docker"><span class="number">6</span><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="docker"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="docker"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="docker"><input type="text" maxlength="1" /></div>
+                            <div class="cell" data-word="docker"><input type="text" maxlength="1" /></div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="check-answers">Check Answers</button>
+                        <button class="clear-grid">Clear Grid</button>
+                    </div>
+                </div>
+                <div class="crossword-clues">
+                    <div class="clues-section">
+                        <h3>Across</h3>
+                        <ol>
+                            <li data-clue="1">Popular version control system (3)</li>
+                            <li data-clue="3">Systems programming language (4)</li>
+                            <li data-clue="4">Package manager for NixOS (3)</li>
+                            <li data-clue="5">Modal text editor (4)</li>
+                            <li data-clue="6">Container platform (6)</li>
+                        </ol>
+                    </div>
+                    <div class="clues-section">
+                        <h3>Down</h3>
+                        <ol>
+                            <li data-clue="2">Python package manager (3)</li>
+                            <li data-clue="3">Terminal multiplexer (4)</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -231,6 +301,148 @@ const issueNumber = "No. 51,839";
 
     // Refresh quote every 5 minutes
     setInterval(fetchTechQuote, 300000);
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.crossword-grid');
+        const inputs = grid.querySelectorAll('input');
+        const checkButton = document.querySelector('.check-answers');
+        const clearButton = document.querySelector('.clear-grid');
+        const clues = document.querySelectorAll('.clues-section li');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value) {
+                    e.target.value = e.target.value.toUpperCase();
+                    const next = findNextCell(e.target);
+                    if (next) next.focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                const target = e.target;
+                
+                switch(e.key) {
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        const nextRight = findNextCell(target);
+                        if (nextRight) nextRight.focus();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        const prevLeft = findPrevCell(target);
+                        if (prevLeft) prevLeft.focus();
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        const above = findCellAbove(target);
+                        if (above) above.focus();
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        const below = findCellBelow(target);
+                        if (below) below.focus();
+                        break;
+                    case 'Backspace':
+                        if (target.value === '') {
+                            e.preventDefault();
+                            const prev = findPrevCell(target);
+                            if (prev) {
+                                prev.focus();
+                                prev.value = '';
+                            }
+                        }
+                        break;
+                    case 'Delete':
+                        if (target.value === '') {
+                            const next = findNextCell(target);
+                            if (next) next.focus();
+                        }
+                        break;
+                }
+            });
+        });
+
+        function findNextCell(currentCell) {
+            const currentRow = currentCell.closest('.grid-row');
+            const cells = Array.from(currentRow.querySelectorAll('input'));
+            const currentIndex = cells.indexOf(currentCell);
+            return cells[currentIndex + 1] || null;
+        }
+
+        function findPrevCell(currentCell) {
+            const currentRow = currentCell.closest('.grid-row');
+            const cells = Array.from(currentRow.querySelectorAll('input'));
+            const currentIndex = cells.indexOf(currentCell);
+            return cells[currentIndex - 1] || null;
+        }
+
+        function findCellAbove(currentCell) {
+            const currentRow = currentCell.closest('.grid-row');
+            const allRows = Array.from(grid.querySelectorAll('.grid-row'));
+            const currentRowIndex = allRows.indexOf(currentRow);
+            if (currentRowIndex > 0) {
+                const aboveRow = allRows[currentRowIndex - 1];
+                const cells = Array.from(currentRow.querySelectorAll('input'));
+                const cellIndex = cells.indexOf(currentCell);
+                const aboveCells = Array.from(aboveRow.querySelectorAll('input'));
+                return aboveCells[cellIndex] || null;
+            }
+            return null;
+        }
+
+        function findCellBelow(currentCell) {
+            const currentRow = currentCell.closest('.grid-row');
+            const allRows = Array.from(grid.querySelectorAll('.grid-row'));
+            const currentRowIndex = allRows.indexOf(currentRow);
+            if (currentRowIndex < allRows.length - 1) {
+                const belowRow = allRows[currentRowIndex + 1];
+                const cells = Array.from(currentRow.querySelectorAll('input'));
+                const cellIndex = cells.indexOf(currentCell);
+                const belowCells = Array.from(belowRow.querySelectorAll('input'));
+                return belowCells[cellIndex] || null;
+            }
+            return null;
+        }
+
+        checkButton.addEventListener('click', () => {
+            inputs.forEach(input => {
+                const cell = input.closest('.cell');
+                const words = cell.dataset.word?.split(',') || [];
+                const isCorrect = words.some(word => {
+                    const allCells = document.querySelectorAll(`[data-word="${word}"]`);
+                    const word_input = Array.from(allCells).map(cell => cell.querySelector('input').value).join('');
+                    return word_input.toLowerCase() === word.toLowerCase();
+                });
+                
+                if (input.value) {
+                    input.classList.remove('correct', 'incorrect');
+                    input.classList.add(isCorrect ? 'correct' : 'incorrect');
+                } else {
+                    input.classList.remove('correct', 'incorrect');
+                }
+            });
+        });
+
+        clearButton.addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('correct', 'incorrect');
+            });
+        });
+
+        clues.forEach(clue => {
+            clue.addEventListener('click', () => {
+                const clueNumber = clue.dataset.clue;
+                const targetCell = grid.querySelector(`[data-number="${clueNumber}"]`);
+                if (targetCell) {
+                    const input = targetCell.querySelector('input');
+                    if (input) input.focus();
+                }
+            });
+        });
+    });
 </script>
 
 <style>
@@ -730,11 +942,11 @@ const issueNumber = "No. 51,839";
     /* Tech Quote Section Styling */
     .news-quote-container {
         grid-column: span 3;
-        grid-row: span 3;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
         align-items: stretch;
+        height: fit-content;
     }
 
     .tech-quote-section {
@@ -965,4 +1177,362 @@ const issueNumber = "No. 51,839";
 .news-scroll-container::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
 }
-</style>
+/* Daily Crossword Styles */
+.daily-crossword {
+    grid-column: span 6;
+    grid-row: span 2;
+    background: var(--grey1);
+    border: 3px solid var(--grey11);
+    padding: 1.5rem;
+}
+
+.crossword-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.crossword-grid {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--grey11);
+    padding: 1px;
+    width: fit-content;
+}
+
+.grid-row {
+    display: flex;
+    gap: 1px;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: 1px solid var(--grey11);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell input {
+    width: 80%;
+    height: 80%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cell input:focus {
+    outline: none;
+    background: transparent;
+    color: #000000;
+}
+
+.cell input.correct {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.cell input.incorrect {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.cell.blocked {
+    background: var(--grey11);
+    cursor: default;
+}
+
+.cell .number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 1rem;
+    color: #000000;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    pointer-events: none;
+}
+
+.cell:focus-within {
+    border-color: var(--grey13);
+    box-shadow: 0 0 0 2px var(--grey13);
+}
+
+.game-controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.game-controls button {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--grey11);
+    background: var(--grey1);
+    color: var(--grey13);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.game-controls button:hover {
+    background: var(--grey13);
+    color: var(--grey1);
+    border-color: var(--grey13);
+}
+
+.game-controls button.check-answers {
+    background: var(--grey13);
+    color: var(--grey1);
+}
+
+.game-controls button.check-answers:hover {
+    background: var(--grey1);
+    color: var(--grey13);
+}
+
+.crossword-clues {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 300px;
+}
+
+.clues-section h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--grey13);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--grey11);
+}
+
+.clues-section ol {
+    list-style-position: inside;
+    padding: 0;
+}
+
+.clues-section li {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--grey11);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+}
+
+.clues-section li:hover {
+    color: var(--grey13);
+}
+
+@media (max-width: 768px) {
+    .crossword-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .game-section {
+        order: 2;
+    }
+
+    .crossword-clues {
+        order: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.game-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.crossword-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--grey11);
+    padding: 1px;
+    width: fit-content;
+}
+
+.grid-row {
+    display: flex;
+    gap: 1px;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: 1px solid var(--grey11);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell input {
+    width: 80%;
+    height: 80%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cell input:focus {
+    outline: none;
+    background: transparent;
+    color: #000000;
+}
+
+.cell input.correct {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.cell input.incorrect {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.cell.blocked {
+    background: var(--grey11);
+    cursor: default;
+}
+
+.cell .number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 1rem;
+    color: #000000;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    pointer-events: none;
+}
+
+.game-controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.game-controls button {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--grey11);
+    background: var(--grey1);
+    color: var(--grey13);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.game-controls button:hover {
+    background: var(--grey13);
+    color: var(--grey1);
+    border-color: var(--grey13);
+}
+
+.game-controls button.check-answers {
+    background: var(--grey13);
+    color: var(--grey1);
+}
+
+.game-controls button.check-answers:hover {
+    background: var(--grey1);
+    color: var(--grey13);
+}
+
+.crossword-clues {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 300px;
+}
+
+.clues-section h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--grey13);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--grey11);
+}
+
+.clues-section ol {
+    list-style-position: inside;
+    padding: 0;
+}
+
+.clues-section li {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--grey11);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+}
+
+.clues-section li:hover {
+    color: var(--grey13);
+}
+
+@media (max-width: 768px) {
+    .crossword-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .game-section {
+        order: 2;
+    }
+
+    .crossword-clues {
+        order: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+    }
+}
