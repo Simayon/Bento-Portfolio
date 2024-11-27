@@ -1,0 +1,203 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    return projects.map(entry => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BlogLayout title={`${entry.data.title} | The Innovation Chronicle`}>
+    <article class="project-article">
+        <header class="article-header">
+            <h1 class="project-title">{entry.data.title}</h1>
+            <div class="project-meta">
+                <time datetime={entry.data.date.toISOString()}>
+                    {entry.data.date.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}
+                </time>
+            </div>
+        </header>
+
+        <div class="project-hero">
+            <img 
+                src={entry.data.image} 
+                alt={entry.data.title}
+                class="hero-image"
+            />
+        </div>
+
+        <div class="project-content">
+            <div class="content-main">
+                <Content />
+            </div>
+            
+            <aside class="project-sidebar">
+                <div class="sidebar-section">
+                    <h2>Impact</h2>
+                    <p>{entry.data.impact}</p>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h2>Technologies</h2>
+                    <div class="tech-tags">
+                        {entry.data.technologies.map(tech => (
+                            <span class="tech-tag">{tech}</span>
+                        ))}
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </article>
+</BlogLayout>
+
+<style>
+    .project-article {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .project-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+    }
+
+    .project-meta {
+        font-family: "EB Garamond", serif;
+        font-style: italic;
+        color: var(--text-muted);
+    }
+
+    .project-hero {
+        margin: -2rem -2rem 2rem -2rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .hero-image:hover {
+        filter: grayscale(0%);
+    }
+
+    .project-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .content-main {
+        font-family: "EB Garamond", serif;
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    .content-main :global(h1) {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .content-main :global(h2) {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .content-main :global(p) {
+        margin-bottom: 1.5rem;
+    }
+
+    .content-main :global(ul) {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .content-main :global(li) {
+        margin-bottom: 0.5rem;
+    }
+
+    .project-sidebar {
+        position: sticky;
+        top: 2rem;
+    }
+
+    .sidebar-section {
+        background: var(--background-alt);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .sidebar-section h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-family: "Manrope", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+        .project-article {
+            padding: 1rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+        }
+
+        .project-hero {
+            margin: -1rem -1rem 1rem -1rem;
+        }
+
+        .hero-image {
+            height: 300px;
+        }
+
+        .project-content {
+            grid-template-columns: 1fr;
+        }
+
+        .project-sidebar {
+            position: static;
+        }
+    }
+</style>
