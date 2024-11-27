@@ -5,8 +5,6 @@ description: A comprehensive guide to modern CSS layout techniques using Grid an
 tags: ['css', 'layout', 'flexbox', 'grid', 'frontend']
 ---
 
-# Modern CSS Layout Techniques
-
 Modern CSS provides powerful tools for creating flexible and responsive layouts. Let's explore how to use CSS Grid and Flexbox effectively.
 
 <div class="callout">
@@ -159,7 +157,7 @@ Here are some frequently used layout patterns:
 ```css
 .holy-grail {
   display: grid;
-  grid-template: 
+  grid-template:
     "header" auto
     "nav" auto
     "main" 1fr
@@ -170,7 +168,7 @@ Here are some frequently used layout patterns:
 
 @media (min-width: 768px) {
   .holy-grail {
-    grid-template: 
+    grid-template:
       "header header" auto
       "nav main" 1fr
       "nav aside" auto

@@ -5,8 +5,6 @@ description: A deep dive into React Hooks and their practical applications
 tags: ['react', 'hooks', 'javascript', 'frontend']
 ---
 
-# Understanding React Hooks
-
 React Hooks have revolutionized how we write React components. Let's explore some common hooks and their practical applications.
 
 <div class="callout">

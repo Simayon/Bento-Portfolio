@@ -5,8 +5,6 @@ description: An example blog post showcasing various content types and styling o
 tags: ['tutorial', 'markdown', 'styling']
 ---
 
-# A Complete Guide to Modern Blog Writing
-
 Welcome to this comprehensive guide that demonstrates various content types and styling options available for your blog posts. This post will show you how to create rich, engaging content using different markdown elements.
 
 ## Basic Typography
@@ -63,11 +61,11 @@ def fibonacci(n):
         return []
     elif n == 1:
         return [0]
-    
+
     sequence = [0, 1]
     while len(sequence) < n:
         sequence.append(sequence[-1] + sequence[-2])
-    
+
     return sequence
 
 # Generate first 10 Fibonacci numbers
@@ -84,7 +82,7 @@ Here's how to use blockquotes for highlighting important information:
 You can also use blockquotes for highlighting important information or creating callouts:
 
 > **Note:** This is a special note that deserves attention.
-> 
+>
 > It can contain multiple paragraphs and other elements.
 
 ## Tables
@@ -122,7 +120,7 @@ Use horizontal rules to separate different sections of your content:
 
 You can include mathematical expressions using LaTeX syntax:
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
+When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 
 ## Tags
