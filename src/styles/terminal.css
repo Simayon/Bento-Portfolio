@@ -1,0 +1,133 @@
+:root {
+    --terminal-bg: #282a36;
+    --terminal-text: #f8f8f2;
+    --terminal-header: #44475a;
+    --terminal-close: #ff5555;
+    --terminal-minimize: #f1fa8c;
+    --terminal-maximize: #50fa7b;
+    --terminal-prompt: #bd93f9;
+    --terminal-command: #8be9fd;
+    --terminal-output: #f8f8f2;
+    --terminal-link: #ff79c6;
+    --terminal-success: #50fa7b;
+    --terminal-error: #ff5555;
+}
+
+body {
+    background-color: #1a1b26;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--terminal-bg);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: var(--terminal-header);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.terminal-button.close {
+    background-color: var(--terminal-close);
+}
+
+.terminal-button.minimize {
+    background-color: var(--terminal-minimize);
+}
+
+.terminal-button.maximize {
+    background-color: var(--terminal-maximize);
+}
+
+.terminal-title {
+    color: var(--terminal-text);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.terminal-content {
+    padding: 1.5rem;
+    color: var(--terminal-text);
+    line-height: 1.6;
+}
+
+.prompt {
+    color: var(--terminal-prompt);
+    margin-right: 0.5rem;
+}
+
+.command {
+    color: var(--terminal-command);
+}
+
+.output {
+    color: var(--terminal-output);
+    margin: 0.5rem 0 1.5rem;
+    white-space: pre-wrap;
+}
+
+.link {
+    color: var(--terminal-link);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.success {
+    color: var(--terminal-success);
+}
+
+.error {
+    color: var(--terminal-error);
+}
+
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end);
+    white-space: nowrap;
+    border-right: .15em solid var(--terminal-text);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}

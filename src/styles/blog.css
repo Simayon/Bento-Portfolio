@@ -1,0 +1,267 @@
+/* Blog post container */
+.blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Typography */
+.blog-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+.blog-content h2 {
+    font-size: 2em;
+    margin: 1.5em 0 0.5em;
+    color: var(--grey1);
+}
+
+.blog-content h3 {
+    font-size: 1.5em;
+    margin: 1.2em 0 0.5em;
+    color: var(--grey2);
+}
+
+.blog-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+    color: var(--grey2);
+}
+
+/* Links */
+.blog-content a {
+    color: var(--brandcolor);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.blog-content a:hover {
+    border-bottom-color: var(--brandcolor);
+}
+
+/* Lists */
+.blog-content ul,
+.blog-content ol {
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+}
+
+.blog-content li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+    color: var(--grey2);
+}
+
+/* Blockquotes */
+.blog-content blockquote {
+    margin: 2em 0;
+    padding: 1em 2em;
+    border-left: 4px solid var(--brandcolor);
+    background-color: var(--grey13);
+    font-style: italic;
+    color: var(--grey3);
+}
+
+.blog-content blockquote p {
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    margin: 1.5em 0;
+    padding: 1.5em;
+    background-color: var(--grey0) !important;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.9em;
+    line-height: 1.5;
+    position: relative;
+}
+
+code[class*="language-"],
+pre[class*="language-"] code {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.9em;
+    color: var(--grey12) !important;
+    text-shadow: none !important;
+    background: none !important;
+    white-space: pre !important;
+}
+
+:not(pre) > code {
+    background-color: var(--grey13) !important;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    color: var(--brandcolor) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.9em;
+}
+
+/* Remove Prism.js styling */
+.token {
+    color: var(--grey12) !important;
+    background: none !important;
+    text-shadow: none !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    text-decoration: none !important;
+}
+
+/* Language indicator */
+pre[class*="language-"]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    font-size: 0.8em;
+    color: var(--grey8);
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Specific language indicators */
+pre[class*="language-jsx"]::before { content: "JSX"; }
+pre[class*="language-typescript"]::before { content: "TS"; }
+pre[class*="language-javascript"]::before { content: "JS"; }
+pre[class*="language-css"]::before { content: "CSS"; }
+pre[class*="language-html"]::before { content: "HTML"; }
+
+/* Remove line numbers and highlighting */
+.line-numbers-rows,
+.line-highlight,
+.line-numbers .line-numbers-rows {
+    display: none !important;
+}
+
+/* Ensure consistent spacing */
+pre[class*="language-"] > code {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+/* Images */
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 2em 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content figure {
+    margin: 2em 0;
+}
+
+.blog-content figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--grey6);
+    margin-top: 0.5em;
+}
+
+/* Horizontal rule */
+.blog-content hr {
+    margin: 3em 0;
+    border: none;
+    border-top: 2px solid var(--grey11);
+}
+
+/* Tables */
+.blog-content table {
+    width: 100%;
+    max-width: 800px;
+    margin: 2em auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    text-align: center;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content th,
+.blog-content td {
+    padding: 1em;
+    border: 1px solid var(--grey11);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.blog-content th {
+    background-color: var(--grey13);
+    font-weight: 600;
+    color: var(--grey1);
+    border-bottom: 2px solid var(--grey11);
+}
+
+.blog-content tr:hover {
+    background-color: var(--grey13);
+    transition: background-color 0.2s ease;
+}
+
+.blog-content td {
+    color: var(--grey2);
+}
+
+/* Callouts */
+.blog-content .callout {
+    margin: 2em 0;
+    padding: 1.5em;
+    border-radius: 8px;
+    background-color: var(--grey13);
+    border-left: 4px solid var(--brandcolor);
+}
+
+.blog-content .callout-title {
+    font-weight: 600;
+    color: var(--grey1);
+    margin-bottom: 0.5em;
+}
+
+.blog-content .callout p:last-child {
+    margin-bottom: 0;
+}
+
+/* Meta information */
+.blog-meta {
+    margin-bottom: 2em;
+    font-size: 0.9em;
+    color: var(--grey6);
+}
+
+.blog-meta time {
+    font-weight: 500;
+}
+
+/* Tags */
+.blog-tags {
+    margin: 2em 0;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.blog-tag {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    background-color: var(--grey13);
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: var(--grey4);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.blog-tag:hover {
+    background-color: var(--grey12);
+}

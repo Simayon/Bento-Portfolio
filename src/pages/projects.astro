@@ -3,15 +3,6 @@ import BaseLayout from '../components/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
-
-function getBentoClass(priority: number) {
-    switch (priority) {
-        case 1: return 'bento-large';
-        case 2: return 'bento-wide';
-        case 3: return 'bento-tall';
-        default: return 'bento-small';
-    }
-}
 ---
 
 <BaseLayout title="Projects - Technical Portfolio">

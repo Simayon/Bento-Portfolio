@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import '../styles/blog.css';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+    <!-- Google Fonts for code blocks -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        slot="head"
+    />
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+        slot="head"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+        slot="head"
+    />
+    
+    <article class="blog-content">
+        <slot />
+    </article>
+</BaseLayout>
+
+<style>
+    .blog-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: "EB Garamond", serif;
+    }
+
+    @media (max-width: 768px) {
+        .blog-content {
+            padding: 1rem;
+        }
+    }
+</style>
