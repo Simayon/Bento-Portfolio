@@ -7,6 +7,16 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout title={frontmatter.title}>
     <article class="blog-post">
+        {frontmatter.image && (
+            <div class="hero-image-container">
+                <img 
+                    src={frontmatter.image}
+                    alt={frontmatter.imageAlt || frontmatter.title}
+                    class="hero-image"
+                    loading="eager"
+                />
+            </div>
+        )}
         <header class="post-header">
             <div class="post-meta">
                 {new Date(frontmatter.date).toLocaleDateString('en-US', {
@@ -40,7 +50,7 @@ const { frontmatter } = Astro.props;
             <footer class="post-footer">
                 <div class="author-card">
                     <img 
-                        src={frontmatter.author.avatar || '/default-avatar.png'} 
+                        src={frontmatter.author.avatar || "https://source.unsplash.com/400x400/?professional-headshot"} 
                         alt={frontmatter.author.name}
                         class="author-avatar"
                     />
@@ -118,6 +128,27 @@ const { frontmatter } = Astro.props;
         margin: 0 auto;
         padding: 2rem;
         font-family: var(--font-serif);
+    }
+
+    .hero-image-container {
+        margin: -2rem -2rem 2rem -2rem;
+        width: calc(100% + 4rem);
+        height: 400px;
+        overflow: hidden;
+        border-radius: 0;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+        .hero-image-container {
+            height: 500px;
+            border-radius: 8px;
+        }
     }
 
     /* Header Styles */

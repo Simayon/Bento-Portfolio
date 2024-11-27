@@ -31,7 +31,7 @@ const { Content } = await entry.render();
 
         <div class="project-hero">
             <img 
-                src={entry.data.image} 
+                src={entry.data.image || "https://source.unsplash.com/1200x800/?technology-project"} 
                 alt={entry.data.title}
                 class="hero-image"
             />

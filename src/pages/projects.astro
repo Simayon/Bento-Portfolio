@@ -18,7 +18,7 @@ const projects = await getCollection('projects');
                 <article class={`article-card item-${index}`}>
                     <div class="article-image">
                         <img 
-                            src={project.data.image || "/images/default-project.jpg"}
+                            src={project.data.image || "https://source.unsplash.com/800x600/?tech,programming,coding"}
                             alt={project.data.title}
                             loading={index === 0 ? "eager" : "lazy"}
                         />
