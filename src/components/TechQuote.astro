@@ -1,0 +1,115 @@
+---
+---
+<section class="bento-item tech-quote-section">
+    <div class="quote-content">
+        <blockquote id="tech-quote">
+            Loading inspiring tech quote...
+        </blockquote>
+        <cite id="quote-author"></cite>
+    </div>
+</section>
+
+<style>
+    .tech-quote-section {
+        border: 3px solid var(--grey11);
+        padding: 1.5rem;
+        background: var(--grey1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-quote-section::before {
+        content: '"';
+        position: absolute;
+        top: -2rem;
+        left: -1rem;
+        font-size: 12rem;
+        font-family: var(--font-serif);
+        color: var(--grey3);
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    .quote-content {
+        text-align: center;
+        color: var(--grey13);
+        position: relative;
+        z-index: 1;
+    }
+
+    blockquote {
+        font-family: var(--font-serif);
+        font-size: clamp(1.1rem, 2vw, 1.25rem);
+        font-style: italic;
+        margin: 0;
+        color: white;
+        line-height: 1.6;
+        transition: opacity 0.3s ease;
+    }
+
+    cite {
+        display: block;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        font-style: normal;
+        color: var(--grey7);
+        transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .tech-quote-section {
+            min-height: 150px;
+            padding: 1.25rem;
+        }
+
+        .tech-quote-section::before {
+            font-size: 8rem;
+            top: -1.5rem;
+            left: -0.75rem;
+        }
+    }
+</style>
+
+<script>
+    async function fetchTechQuote() {
+        try {
+            const quoteElement = document.getElementById('tech-quote');
+            const authorElement = document.getElementById('quote-author');
+            
+            if (quoteElement && authorElement) {
+                const quotes = [
+                    { text: "The best way to predict the future is to invent it.", author: "Alan Kay" },
+                    { text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci" },
+                    { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+                    { text: "Code is like humor. When you have to explain it, it's bad.", author: "Cory House" },
+                    { text: "The most disastrous thing that you can ever learn is your first programming language.", author: "Alan Kay" }
+                ];
+                
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                
+                quoteElement.style.opacity = '0';
+                authorElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    quoteElement.textContent = randomQuote.text;
+                    authorElement.textContent = `— ${randomQuote.author}`;
+                    
+                    quoteElement.style.opacity = '1';
+                    authorElement.style.opacity = '1';
+                }, 300);
+            }
+        } catch (error) {
+            console.error('Error fetching tech quote:', error);
+        }
+    }
+
+    // Fetch quote on load and every 30 seconds
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchTechQuote();
+        setInterval(fetchTechQuote, 30000);
+    });
+</script>
