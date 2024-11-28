@@ -3,6 +3,8 @@ import BaseLayout from '../components/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import LeadStory from '../components/LeadStory.astro';
 import LatestPosts from '../components/LatestPosts.astro';
+import TechQuote from '../components/TechQuote.astro';
+import WhatsHappening from '../components/WhatsHappening.astro';
 
 // Get latest blog posts
 const posts = await getCollection('blog');
@@ -64,66 +66,33 @@ const issueNumber = "No. 51,839";
 
         <LatestPosts/>
 
-            <section class="bento-item tech-quote-section">
-                <div class="quote-content">
-                    <blockquote id="tech-quote">
-                        Loading inspiring tech quote...
-                    </blockquote>
-                    <cite id="quote-author"></cite>
-                </div>
-            </section>
-        </div>
-<!-- Tech and Happening Section Wrapper -->
-<div class="tech-happening-wrapper"></div>
-        <!-- Tech Bulletin -->
-        <section class="bento-item tech-bulletin">
-            <div class="column-header">Tech Bulletin</div>
-            <div class="bulletin-grid">
-                <div class="bulletin-item">
-                    <span class="bulletin-tag">Frontend</span>
-                    <h3>React</h3>
-                    <p>Building responsive and dynamic user interfaces</p>
-                </div>
-                <div class="bulletin-item">
-                    <span class="bulletin-tag">Backend</span>
-                    <h3>Node.js</h3>
-                    <p>Powering server-side applications</p>
-                </div>
-                <div class="bulletin-item">
-                    <span class="bulletin-tag">Database</span>
-                    <h3>PostgreSQL</h3>
-                    <p>Robust data management solutions</p>
-                </div>
-            </div>
-        </section>
+         <TechQuote/>
+    </main>
+        <!-- Tech and Happening Section Wrapper -->
+        <div class="tech-happening-wrapper"></div>
+                <!-- Tech Bulletin -->
+                <section class="bento-item tech-bulletin">
+                    <div class="column-header">Tech Bulletin</div>
+                    <div class="bulletin-grid">
+                        <div class="bulletin-item">
+                            <span class="bulletin-tag">Frontend</span>
+                            <h3>React</h3>
+                            <p>Building responsive and dynamic user interfaces</p>
+                        </div>
+                        <div class="bulletin-item">
+                            <span class="bulletin-tag">Backend</span>
+                            <h3>Node.js</h3>
+                            <p>Powering server-side applications</p>
+                        </div>
+                        <div class="bulletin-item">
+                            <span class="bulletin-tag">Database</span>
+                            <h3>PostgreSQL</h3>
+                            <p>Robust data management solutions</p>
+                        </div>
+                    </div>
+                </section>
 
-<!-- What's Happening Now? -->
-<section class="bento-item whats-happening">
-    <div class="column-header">What's Happening Now?</div>
-    <div class="now-grid">
-        <div class="now-item">
-            <h3>📚 Currently Reading</h3>
-            <p>"Atomic Habits" by James Clear</p>
-            <small>A guide about building good habits and breaking bad ones</small>
-        </div>
-        <div class="now-item">
-            <h3>💻 Current Project</h3>
-            <p>Personal Portfolio Website</p>
-            <small>Building a modern, interactive portfolio with Astro.js</small>
-        </div>
-        <div class="now-item">
-            <h3>🎬 Watching</h3>
-            <p>The Bear (TV Series)</p>
-            <small>A young chef returns home to run his family's restaurant</small>
-        </div>
-        <div class="now-item">
-            <h3>🎮 Playing</h3>
-            <p>Baldur's Gate 3</p>
-            <small>An epic RPG adventure by Larian Studios</small>
-        </div>
-    </div>
-</section>
-</div>
+                <WhatsHappening/>
          <!-- Daily Crossword -->
          <section class="bento-item daily-crossword">
             <div class="column-header" style="color: white;">Crossword Puzzle</div>
