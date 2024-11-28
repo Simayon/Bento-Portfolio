@@ -139,7 +139,8 @@ const issueNumber = "No. 51,839";
                 </div>
             </section>
         </div>
-
+<!-- Tech and Happening Section Wrapper -->
+<div class="tech-happening-wrapper"></div>
         <!-- Tech Bulletin -->
         <section class="bento-item tech-bulletin">
             <div class="column-header">Tech Bulletin</div>
@@ -162,30 +163,33 @@ const issueNumber = "No. 51,839";
             </div>
         </section>
        
-        <!-- Project Highlights -->
-        <section class="bento-item project-highlights">
-            <div class="column-header">Project Highlights</div>
-            <div class="highlights-content">
-                <article class="highlight">
-                    <div class="highlight-header">
-                        <h3>Featured Project</h3>
-                        <span class="highlight-meta">In Development</span>
-                    </div>
-                    <h4>AI-Powered Analytics</h4>
-                    <p>Revolutionizing data analysis with machine learning algorithms</p>
-                </article>
-                <div class="highlight-separator"></div>
-                <article class="highlight">
-                    <div class="highlight-header">
-                        <h3>Latest Release</h3>
-                        <span class="highlight-meta">Version 2.0</span>
-                    </div>
-                    <h4>Cloud Infrastructure</h4>
-                    <p>Scalable solutions for modern applications</p>
-                </article>
-            </div>
-        </section>
-
+<!-- What's Happening Now? -->
+<section class="bento-item whats-happening">
+    <div class="column-header">What's Happening Now?</div>
+    <div class="now-grid">
+        <div class="now-item">
+            <h3>📚 Currently Reading</h3>
+            <p>"Atomic Habits" by James Clear</p>
+            <small>A guide about building good habits and breaking bad ones</small>
+        </div>
+        <div class="now-item">
+            <h3>💻 Current Project</h3>
+            <p>Personal Portfolio Website</p>
+            <small>Building a modern, interactive portfolio with Astro.js</small>
+        </div>
+        <div class="now-item">
+            <h3>🎬 Watching</h3>
+            <p>The Bear (TV Series)</p>
+            <small>A young chef returns home to run his family's restaurant</small>
+        </div>
+        <div class="now-item">
+            <h3>🎮 Playing</h3>
+            <p>Baldur's Gate 3</p>
+            <small>An epic RPG adventure by Larian Studios</small>
+        </div>
+    </div>
+</section>
+</div>
          <!-- Daily Crossword -->
          <section class="bento-item daily-crossword">
             <div class="column-header" style="color: white;">Crossword Puzzle</div>
@@ -491,6 +495,31 @@ const issueNumber = "No. 51,839";
 
                     .crossword-clues {
                         max-height: 300px;
+                    }
+                }
+                .tech-happening-wrapper {
+                    display: flex;
+                    gap: 20px;
+                    width: 100%;
+                }
+                
+                .tech-bulletin {
+                    flex: 1;
+                    min-width: 25%;
+                }
+                
+                .whats-happening {
+                    flex: 3;
+                }
+                
+                @media (max-width: 768px) {
+                    .tech-happening-wrapper {
+                        flex-direction: column;
+                    }
+                    
+                    .tech-bulletin,
+                    .whats-happening {
+                        width: 100%;
                     }
                 }
             </style>
@@ -903,9 +932,10 @@ const issueNumber = "No. 51,839";
     /* Restore original body styling */
     .newspaper-grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 1.5rem;
-        padding: 0 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 2rem;
+        padding: 2rem;
         max-width: 1400px;
         margin: 0 auto;
     }
@@ -932,12 +962,8 @@ const issueNumber = "No. 51,839";
 
     /* Lead Story */
     .lead-story {
-        grid-column: span 6;
-        grid-row: span 2;
-        font-family: var(--font-serif);
-        border: 3px solid var(--grey11);
-        padding: 2rem;
-        background: white;
+        grid-column: 1 / span 2;
+        grid-row: 1;
     }
 
     .headline-box {
@@ -1284,22 +1310,27 @@ const issueNumber = "No. 51,839";
 
     /* Tech Quote Section Styling */
     .news-quote-container {
-        grid-column: span 3;
+        grid-column: 3;
+        grid-row: 1;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        align-items: stretch;
-        height: fit-content;
+        gap: 2rem;
+    }
+
+    .news-section {
+        flex: 1;
+        border: 3px solid var(--grey11);
+        padding: 1.5rem;
     }
 
     .tech-quote-section {
         border: 3px solid var(--grey11);
         padding: 1.5rem;
+        background: var(--grey1);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: var(--grey1);
-        color: var(--grey13);
+        min-height: 200px;
     }
 
     .tech-quote-section .quote-content {
@@ -1308,26 +1339,25 @@ const issueNumber = "No. 51,839";
     }
 
     .tech-quote-section blockquote {
-        font-family: var(--font-title);
-        font-size: 1.6rem;
-        line-height: 1.5;
-        margin: 0;
-        padding: 0;
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
         font-style: italic;
+        margin: 0;
+        color: white;
     }
 
     .tech-quote-section cite {
         display: block;
         margin-top: 1rem;
-        font-family: var(--font-serif);
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        font-style: normal;
         color: var(--grey7);
     }
 
     /* Tech Bulletin */
     .tech-bulletin {
-        grid-column: span 3;
-        grid-row: span 2;
+        grid-column: 1;
+        grid-row: 2;
     }
 
     .bulletin-grid {
@@ -1341,16 +1371,21 @@ const issueNumber = "No. 51,839";
     }
 
     .bulletin-item h3 {
-        font-family: var(--font-title);
-        font-size: 1.3rem;
-        margin: 0.5rem 0;
-        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--grey1);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-sans);
     }
 
     .bulletin-item p {
-        font-family: var(--font-serif);
         font-size: 1.1rem;
-        line-height: 1.5;
+        color: var(--grey2);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-family: var(--font-serif);
     }
 
     /* Project Highlights */
@@ -1383,7 +1418,8 @@ const issueNumber = "No. 51,839";
 
     /* Quick Reference */
     .quick-reference {
-        grid-column: span 6;
+        grid-column: 1 / span 2;
+        grid-row: 3;
     }
 
     .reference-grid {
@@ -1416,90 +1452,64 @@ const issueNumber = "No. 51,839";
 
     @media (max-width: 1200px) {
         .newspaper-grid {
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
         }
 
-        .lead-story,
-        .news-column,
+        .lead-story {
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
+
+        .news-quote-container {
+            grid-column: 1 / span 2;
+            grid-row: 2;
+        }
+
         .tech-bulletin {
-            grid-column: span 6;
+            grid-column: 1;
+            grid-row: 3;
         }
 
-        .reference-grid {
-            grid-template-columns: repeat(2, 1fr);
+        .whats-happening {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .daily-crossword {
+            grid-column: 2;
+            grid-row: 4;
+        }
+
+        .quick-reference {
+            grid-column: 1;
+            grid-row: 4;
         }
     }
 
     @media (max-width: 768px) {
         .newspaper-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
             padding: 1rem;
         }
 
-        .bento-item {
-            grid-column: span 1 !important;
+        .lead-story,
+        .news-quote-container,
+        .tech-bulletin,
+        .whats-happening,
+        .daily-crossword,
+        .quick-reference {
+            grid-column: 1;
         }
 
-        .highlights-content {
-            grid-template-columns: 1fr;
-        }
-
-        .highlight-separator {
-            display: none;
-        }
-
-        .date-banner {
-            flex-direction: column;
-            gap: 0.5rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .top-banner {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .edition-info, .price-info {
-            display: none;
-        }
-
-        .masthead-main {
-            font-size: 2.5rem;
-        }
-
-        .story-content {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .story-content::after {
-            display: none;
-        }
-
-        .lead-paragraph {
-            column-count: 1;
-            padding-left: 0;
-        }
-
-        .story-image {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .story-sidebar {
-            padding-left: 0;
-            gap: 1rem;
-        }
-
-        .story-image {
-            margin: 0;
-        }
-
-        .quick-facts, .featured-quote {
-            max-width: 100%;
-        }
+        .lead-story { grid-row: 1; }
+        .news-quote-container { grid-row: 2; }
+        .tech-bulletin { grid-row: 3; }
+        .whats-happening { grid-row: 4; }
+        .quick-reference { grid-row: 5; }
+        .daily-crossword { grid-row: 6; }
     }
     .news-and-quote-column {
     grid-column: span 3;
@@ -1522,8 +1532,10 @@ const issueNumber = "No. 51,839";
 }
 /* Daily Crossword Styles */
 .daily-crossword {
-    grid-column: span 6;
-    grid-row: span 2;
+    grid-column: 3;
+    grid-row: 3;
+    align-self: end;
+    margin-bottom: 0;
     background: var(--grey1);
     border: 3px solid var(--grey11);
     padding: 1.5rem;
@@ -1979,124 +1991,152 @@ const issueNumber = "No. 51,839";
 }
 </style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const crosswordGrid = document.querySelector('.crossword-grid');
-        const gameSection = document.querySelector('.game-section');
-        
-        const answers = {
-            'react': 'REACT',
-            'rust': 'RUST',
-            'node': 'NODE',
-            'swift': 'SWIFT',
-            'linux': 'LINUX',
-            'astro': 'ASTRO',
-            'redis': 'REDIS',
-            'mongo': 'MONGO'
-        };
+<style>
+    .whats-happening {
+        background: var(--grey3);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
 
-        function getWordsForCell(cell) {
-            return cell.dataset.word.split(',');
+    .whats-happening::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        opacity: 0.15;
+        pointer-events: none;
+    }
+
+    .now-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+        position: relative;
+    }
+
+    .now-item {
+        background: var(--grey4);
+        padding: 1.75rem;
+        border-radius: 2px;
+        position: relative;
+        border: 1px solid var(--grey7);
+        box-shadow: 3px 3px 0 var(--grey7);
+        transition: all 0.2s ease;
+    }
+
+    .now-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    .now-item:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 var(--grey7);
+    }
+
+    .now-item h3 {
+        font-family: var(--font-title);
+        font-size: 1.2rem;
+        margin: 0 0 1rem 0;
+        color: var(--grey12);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--grey7);
+        padding-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    .now-item p {
+        font-family: var(--font-serif);
+        font-size: 1.4rem;
+        margin: 0 0 0.75rem 0;
+        color: var(--grey12);
+        line-height: 1.4;
+        font-weight: 600;
+    }
+
+    .now-item small {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        color: var(--grey11);
+        display: block;
+        line-height: 1.5;
+        font-style: italic;
+    }
+
+    .column-header {
+        font-family: var(--font-title);
+        font-size: 1.75rem;
+        color: var(--grey12);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px double var(--grey7);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+        .whats-happening {
+            padding: 1.5rem;
         }
 
-        function isIntersectionCell(cell) {
-            return getWordsForCell(cell).length > 1;
+        .now-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
-        function checkWord(word, cells) {
-            const wordCells = cells.filter(cell => getWordsForCell(cell).includes(word));
-            const inputValues = wordCells
-                .map(cell => cell.querySelector('input').value.toUpperCase())
-                .join('');
-            
-            const isCorrect = inputValues === answers[word];
-            
-            // Update cell classes based on correctness
-            wordCells.forEach(cell => {
-                if (isIntersectionCell(cell)) {
-                    // Special handling for intersection cells
-                    const allWords = getWordsForCell(cell);
-                    const cellValue = cell.querySelector('input').value.toUpperCase();
-                    
-                    // Check if the current letter matches all words at this position
-                    const isCorrectForAll = allWords.every(w => {
-                        const wordCells = cells.filter(c => getWordsForCell(c).includes(w));
-                        const pos = wordCells.indexOf(cell);
-                        return cellValue === answers[w][pos];
-                    });
-                    
-                    cell.classList.toggle('correct', isCorrectForAll);
-                    cell.classList.toggle('incorrect', !isCorrectForAll);
-                } else {
-                    cell.classList.toggle('correct', isCorrect);
-                    cell.classList.toggle('incorrect', !isCorrect);
-                }
-            });
-            
-            return isCorrect;
+        .now-item {
+            padding: 1.5rem;
         }
 
-        function validateGrid() {
-            const cells = Array.from(document.querySelectorAll('.cell:not(.blocked)'));
-            cells.forEach(cell => cell.classList.remove('correct', 'incorrect'));
-
-            const words = [...new Set(cells.flatMap(cell => getWordsForCell(cell)))];
-            return words.every(word => checkWord(word, cells));
+        .now-item p {
+            font-size: 1.3rem;
         }
 
-        document.querySelector('.check-answers').addEventListener('click', () => {
-            if (validateGrid()) {
-                crosswordGrid.classList.add('success');
-                setTimeout(() => {
-                    crosswordGrid.classList.remove('success');
-                }, 3000);
-            }
-        });
-
-        // Clear grid button
-        document.querySelector('.clear-grid').addEventListener('click', () => {
-            const cells = document.querySelectorAll('.cell:not(.blocked)');
-            cells.forEach(cell => {
-                const input = cell.querySelector('input');
-                if (input) {
-                    input.value = '';
-                }
-                cell.classList.remove('correct', 'incorrect');
-            });
-            crosswordGrid.classList.remove('success');
-        });
-
-        // Auto-validate on input for intersection cells
-        document.querySelectorAll('.cell[data-word*=","]').forEach(cell => {
-            const input = cell.querySelector('input');
-            if (input) {
-                input.addEventListener('input', () => {
-                    validateGrid();
-                });
-            }
-        });
-    });
-</script>
+        .column-header {
+            font-size: 1.5rem;
+        }
+    }
+</style>
 
 <style>
-    .cell.correct input {
-        color: #4CAF50;
-        font-weight: bold;
+    .tech-happening-wrapper {
+        display: flex;
+        gap: 20px;
+        width: 100%;
     }
-
-    .cell.incorrect input {
-        color: #f44336;
+    
+    .tech-bulletin {
+        flex: 1;
+        min-width: 25%;
     }
-
-    .cell input:focus {
-        outline: 2px solid #2196F3;
-        outline-offset: -2px;
+    
+    .whats-happening {
+        flex: 3;
     }
-
-    /* Improve input visibility */
-    .cell input {
-        text-transform: uppercase;
-        font-size: 1.2em;
-        font-weight: 600;
+    
+    @media (max-width: 768px) {
+        .tech-happening-wrapper {
+            flex-direction: column;
+        }
+        
+        .tech-bulletin,
+        .whats-happening {
+            width: 100%;
+        }
     }
 </style>
