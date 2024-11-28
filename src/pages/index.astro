@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../components/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import LeadStory from '../components/LeadStory.astro';
+import LatestPosts from '../components/LatestPosts.astro';
 
 // Get latest blog posts
 const posts = await getCollection('blog');
@@ -58,77 +60,9 @@ const issueNumber = "No. 51,839";
 
     <main class="newspaper-grid">
         <!-- Lead Story -->
-        <section class="bento-item lead-story">
-            <div class="headline-box">
-                <h1>Exploring the Digital Frontier</h1>
-                <p class="subheading">A Journey Through Modern Technology and Development</p>
-                <div class="byline">By Simayon Thampi | Digital Explorer</div>
-            </div>
-            <div class="story-content">
-                <div class="story-text">
-                    <div class="story-image">
-                        <img
-                            src="https://images.pexels.com/photos/7869034/pexels-photo-7869034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            alt="Modern workspace with computer screens showing code"
-                        />
-                        <span class="image-caption">A glimpse into the modern development environment where innovation takes shape</span>
-                    </div>
-                    <div class="lead-paragraph">
-                        <p class="first-paragraph">
-                            Hey there! 👋 I'm a design engineer who loves diving deep into how things work. Think of me as a tech explorer – one day I'm tinkering with Linux kernels and embedded systems, the next I'm building robots or crafting web experiences.
-                        </p>
-                        <p>
-                            When I'm not debugging drivers or making hardware dance to my code, you'll find me geeking out over cybersecurity challenges or brainstorming the next cool automation project. I believe the best solutions come from mixing technical know-how with a dash of creativity.
-                        </p>
-                        <p>
-                            My secret sauce? An endless curiosity about technology and a drive to make things better, simpler, and more fun. Let's build something awesome together! 🚀
-                        </p>
-                    </div>
-                </div>
-                <div class="story-sidebar">
-                    <div class="quick-facts">
-                        <h3>At a Glance</h3>
-                        <ul>
-                            <li>Embedded Systems Development</li>
-                            <li>Linux Kernel Programming</li>
-                            <li>Full-Stack Web Development</li>
-                            <li>Hardware-Software Integration</li>
-                        </ul>
-                    </div>
-                    <div class="featured-quote">
-                        <blockquote>
-                            "In the realm of technology, every challenge is an opportunity to innovate and create solutions that matter."
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-            <a href="/about" class="continue-reading">Continue Reading →</a>
-        </section>
+        <LeadStory/>
 
-        <div class="news-quote-container">
-            <section class="bento-item news-section">
-                <div class="column-header">Latest Dispatches</div>
-                <div class="news-scroll-container">
-                    {latestPosts.map((post) => (
-                        <article class="news-item">
-                            <div class="news-item-header">
-                                <div class="news-meta-top">
-                                    <span class="news-date">{new Date(post.data.date).toLocaleDateString('en-US', {
-                                        month: 'short',
-                                        day: 'numeric'
-                                    })}</span>
-                                    <span class="news-category">{post.data.category}</span>
-                                </div>
-                                <h2 class="news-title"><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
-                            </div>
-                            <div class="news-excerpt">{post.data.description}</div>
-                            <div class="news-meta-bottom">
-                                <span class="read-time">3 min read</span>
-                            </div>
-                        </article>
-                    ))}
-                </div>
-            </section>
+        <LatestPosts/>
 
             <section class="bento-item tech-quote-section">
                 <div class="quote-content">
@@ -162,7 +96,7 @@ const issueNumber = "No. 51,839";
                 </div>
             </div>
         </section>
-       
+
 <!-- What's Happening Now? -->
 <section class="bento-item whats-happening">
     <div class="column-header">What's Happening Now?</div>
@@ -502,21 +436,21 @@ const issueNumber = "No. 51,839";
                     gap: 20px;
                     width: 100%;
                 }
-                
+
                 .tech-bulletin {
                     flex: 1;
                     min-width: 25%;
                 }
-                
+
                 .whats-happening {
                     flex: 3;
                 }
-                
+
                 @media (max-width: 768px) {
                     .tech-happening-wrapper {
                         flex-direction: column;
                     }
-                    
+
                     .tech-bulletin,
                     .whats-happening {
                         width: 100%;
@@ -591,7 +525,7 @@ const issueNumber = "No. 51,839";
 
             input.addEventListener('keydown', (e) => {
                 const target = e.target;
-                
+
                 switch(e.key) {
                     case 'ArrowRight':
                         e.preventDefault();
@@ -684,7 +618,7 @@ const issueNumber = "No. 51,839";
                     const word_input = Array.from(allCells).map(cell => cell.querySelector('input').value).join('');
                     return word_input.toLowerCase() === word.toLowerCase();
                 });
-                
+
                 if (input.value) {
                     input.classList.remove('correct', 'incorrect');
                     input.classList.add(isCorrect ? 'correct' : 'incorrect');
@@ -718,7 +652,7 @@ const issueNumber = "No. 51,839";
     document.addEventListener('DOMContentLoaded', () => {
         const crosswordGrid = document.querySelector('.crossword-grid');
         const gameSection = document.querySelector('.game-section');
-        
+
         const answers = {
             'react': 'REACT',
             'rust': 'RUST',
@@ -743,23 +677,23 @@ const issueNumber = "No. 51,839";
             const inputValues = wordCells
                 .map(cell => cell.querySelector('input').value.toUpperCase())
                 .join('');
-            
+
             const isCorrect = inputValues === answers[word];
-            
+
             // Update cell classes based on correctness
             wordCells.forEach(cell => {
                 if (isIntersectionCell(cell)) {
                     // Special handling for intersection cells
                     const allWords = getWordsForCell(cell);
                     const cellValue = cell.querySelector('input').value.toUpperCase();
-                    
+
                     // Check if the current letter matches all words at this position
                     const isCorrectForAll = allWords.every(w => {
                         const wordCells = cells.filter(c => getWordsForCell(c).includes(w));
                         const pos = wordCells.indexOf(cell);
                         return cellValue === answers[w][pos];
                     });
-                    
+
                     cell.classList.toggle('correct', isCorrectForAll);
                     cell.classList.toggle('incorrect', !isCorrectForAll);
                 } else {
@@ -767,7 +701,7 @@ const issueNumber = "No. 51,839";
                     cell.classList.toggle('incorrect', !isCorrect);
                 }
             });
-            
+
             return isCorrect;
         }
 
@@ -825,7 +759,7 @@ const issueNumber = "No. 51,839";
         margin-bottom: 2rem;
         padding: 1rem 0;
         background-color: white;
-        background-image: 
+        background-image:
             radial-gradient(var(--grey13) 1px, transparent 1px),
             radial-gradient(var(--grey13) 1px, transparent 1px);
         background-size: 20px 20px;
@@ -1269,7 +1203,7 @@ const issueNumber = "No. 51,839";
         padding: 2.5rem;
         position: relative;
         isolation: isolate;
-        background-image: 
+        background-image:
             radial-gradient(var(--grey13) 1px, transparent 1px),
             radial-gradient(var(--grey13) 1px, transparent 1px);
         background-size: 20px 20px;
@@ -1280,7 +1214,7 @@ const issueNumber = "No. 51,839";
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(to right, 
+        background: linear-gradient(to right,
             rgba(255, 255, 255, 0.98),
             rgba(255, 255, 255, 0.95)
         );
@@ -2119,21 +2053,21 @@ const issueNumber = "No. 51,839";
         gap: 20px;
         width: 100%;
     }
-    
+
     .tech-bulletin {
         flex: 1;
         min-width: 25%;
     }
-    
+
     .whats-happening {
         flex: 3;
     }
-    
+
     @media (max-width: 768px) {
         .tech-happening-wrapper {
             flex-direction: column;
         }
-        
+
         .tech-bulletin,
         .whats-happening {
             width: 100%;

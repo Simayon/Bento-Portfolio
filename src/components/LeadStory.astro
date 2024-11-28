@@ -1,0 +1,400 @@
+---
+---
+<section class="bento-item lead-story">
+    <div class="headline-box">
+        <h1>Exploring the Digital Frontier</h1>
+        <p class="subheading">A Journey Through Modern Technology and Development</p>
+        <div class="byline">By Simayon Thampi | Digital Explorer</div>
+    </div>
+    <div class="story-content">
+        <div class="story-text">
+            <div class="story-image">
+                <img
+                    src="https://images.pexels.com/photos/7869034/pexels-photo-7869034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="Modern workspace with computer screens showing code"
+                />
+                <span class="image-caption">A glimpse into the modern development environment where innovation takes shape</span>
+            </div>
+            <div class="lead-paragraph">
+                <p class="first-paragraph">
+                    Hey there! 👋 I'm a design engineer who loves diving deep into how things work. Think of me as a tech explorer – one day I'm tinkering with Linux kernels and embedded systems, the next I'm building robots or crafting web experiences.
+                </p>
+                <p>
+                    When I'm not debugging drivers or making hardware dance to my code, you'll find me geeking out over cybersecurity challenges or brainstorming the next cool automation project. I believe the best solutions come from mixing technical know-how with a dash of creativity.
+                </p>
+                <p>
+                    My secret sauce? An endless curiosity about technology and a drive to make things better, simpler, and more fun. Let's build something awesome together! 🚀
+                </p>
+            </div>
+        </div>
+        <div class="story-sidebar">
+            <div class="quick-facts">
+                <h3>At a Glance</h3>
+                <ul>
+                    <li>Embedded Systems Development</li>
+                    <li>Linux Kernel Programming</li>
+                    <li>Full-Stack Web Development</li>
+                    <li>Hardware-Software Integration</li>
+                </ul>
+            </div>
+            <div class="featured-quote">
+                <blockquote>
+                    "In the realm of technology, every challenge is an opportunity to innovate and create solutions that matter."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <a href="/about" class="continue-reading">Continue Reading →</a>
+</section>
+
+<style>
+    :root {
+        --font-title: 'Arial Black', sans-serif;
+        --font-serif: 'Georgia', serif;
+        --font-sans: 'Helvetica Neue', sans-serif;
+        --font-serif: 'Times New Roman', serif;
+        --font-serif: 'Courier New', monospace;
+        --grey1: #222;
+        --grey3: #555;
+        --grey6: #888;
+        --grey9: #bbb;
+        --grey11: #ddd;
+    }
+
+    .lead-story {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        border: 2px solid var(--grey11);
+        border-style: double none;
+        padding: 2rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.01)
+        );
+        position: relative;
+    }
+
+    .lead-story::before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        border-left: 1px solid var(--grey11);
+        border-right: 1px solid var(--grey11);
+        pointer-events: none;
+    }
+
+    .headline-box {
+        border-bottom: 3px double var(--grey11);
+        margin: -2rem -2rem 2rem -2rem;
+        padding: 2rem 2rem 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        position: relative;
+    }
+
+    .headline-box::after {
+        content: '';
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid var(--grey11);
+    }
+
+    .story-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        padding: 0 1rem;
+    }
+
+    .story-text {
+        border-right: 1px solid var(--grey11);
+        padding-right: 2rem;
+        margin-right: -1rem;
+        position: relative;
+    }
+
+    .story-text::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        bottom: 0;
+        border-right: 1px dotted var(--grey11);
+        opacity: 0.5;
+    }
+
+    .story-sidebar {
+        padding-left: 1rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+
+    .quick-facts {
+        margin-bottom: 2rem;
+        border: 2px solid var(--grey11);
+        padding: 1.5rem;
+        position: relative;
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .quick-facts::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        left: 4px;
+        border: 1px solid var(--grey11);
+        pointer-events: none;
+    }
+
+    .quick-facts h3 {
+        font-family: var(--font-title);
+        font-size: 1.4rem;
+        color: var(--grey1);
+        margin: -1.5rem -1.5rem 1rem -1.5rem;
+        padding: 1rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.03);
+        border-bottom: 2px solid var(--grey11);
+        position: relative;
+    }
+
+    .quick-facts h3::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid var(--grey11);
+    }
+
+    .quick-facts ul {
+        list-style: none;
+        padding: 0 0.5rem;
+        margin: 0;
+    }
+
+    .quick-facts li {
+        color: var(--grey3);
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px dotted var(--grey11);
+        position: relative;
+    }
+
+    .quick-facts li:last-child {
+        border-bottom: none;
+    }
+
+    .quick-facts li::before {
+        content: '•';
+        color: var(--grey11);
+        position: absolute;
+        left: -1rem;
+    }
+
+    .featured-quote {
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--grey3);
+        font-size: 1.1rem;
+        line-height: 1.4;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--grey11);
+        border-bottom: 1px solid var(--grey11);
+        margin: 1rem 0;
+        position: relative;
+    }
+
+    .featured-quote::before,
+    .featured-quote::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-style: dotted;
+        border-color: var(--grey11);
+    }
+
+    .featured-quote::before {
+        top: 3px;
+        border-top: 1px dotted;
+    }
+
+    .featured-quote::after {
+        bottom: 3px;
+        border-bottom: 1px dotted;
+    }
+
+    .lead-story h1 {
+        font-family: var(--font-title);
+        font-size: 3.2rem;
+        line-height: 1.1;
+        margin-bottom: 0.8rem;
+        font-weight: 700;
+        color: var(--grey1);
+    }
+
+    .subheading {
+        font-size: 1.6rem;
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--grey3);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+
+    .byline {
+        font-style: italic;
+        color: var(--grey6);
+        font-size: 0.95rem;
+        border-top: 1px solid var(--grey11);
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .story-image {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--grey11);
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .story-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .image-caption {
+        display: block;
+        font-style: italic;
+        color: var(--grey9);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    .first-paragraph::first-letter {
+        initial-letter: 2;
+        -webkit-initial-letter: 2;
+        color: var(--grey1);
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .continue-reading {
+        display: inline-block;
+        font-family: var(--font-sans);
+        color: var(--grey3);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--grey11);
+        transition: all 0.3s ease;
+    }
+
+    .continue-reading:hover {
+        background: var(--grey11);
+        color: var(--grey1);
+    }
+
+    @media (max-width: 1200px) {
+        .lead-story {
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .story-content {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .story-text {
+            border-right: none;
+            padding-right: 0;
+            margin-right: 0;
+        }
+
+        .story-text::after {
+            display: none;
+        }
+
+        .story-sidebar {
+            padding-left: 0;
+            border-left: none;
+            border-top: 2px double var(--grey11);
+            padding-top: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .lead-story {
+            padding: 1.5rem;
+            border-left: none;
+            border-right: none;
+        }
+
+        .headline-box {
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+            padding: 1.5rem 1.5rem 1rem;
+        }
+
+        .story-content {
+            padding: 0;
+        }
+
+        .story-text {
+            border-right: none;
+            padding-right: 0;
+            margin-right: 0;
+        }
+
+        .story-text::after {
+            display: none;
+        }
+
+        .story-sidebar {
+            padding-left: 0;
+            border-left: none;
+            border-top: 2px double var(--grey11);
+            padding-top: 1.5rem;
+        }
+
+        .quick-facts {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+        }
+
+        .quick-facts h3 {
+            margin: -1rem -1rem 1rem -1rem;
+            padding: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .quick-facts ul {
+            padding: 0 0.25rem;
+        }
+
+        .quick-facts li {
+            padding: 0.5rem 0;
+        }
+
+        .lead-story h1 {
+            font-size: 2.5rem;
+        }
+
+        .subheading {
+            font-size
+</style>

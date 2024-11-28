@@ -1,0 +1,181 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts
+const posts = await getCollection('blog');
+const latestPosts = posts
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3);
+---
+<div class="news-quote-container">
+    <section class="bento-item news-section">
+        <div class="column-header">Latest Dispatches</div>
+        <div class="news-scroll-container">
+            {latestPosts.map((post) => (
+                <article class="news-item">
+                    <div class="news-item-header">
+                        <div class="news-meta-top">
+                            <span class="news-date">{new Date(post.data.date).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric'
+                            })}</span>
+                            <span class="news-category">{post.data.category}</span>
+                        </div>
+                        <h2 class="news-title"><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+                    </div>
+                    <div class="news-excerpt">{post.data.description}</div>
+                    <div class="news-meta-bottom">
+                        <span class="read-time">3 min read</span>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+</div>
+
+<style>
+    .news-quote-container {
+        display: contents;
+    }
+
+    .news-section {
+        background: white;
+        padding: 2.5rem;
+        position: relative;
+        isolation: isolate;
+        background-image: 
+            radial-gradient(var(--grey13) 1px, transparent 1px),
+            radial-gradient(var(--grey13) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        border: 1px solid var(--grey11);
+        transition: border-color 0.3s ease;
+    }
+
+    .news-section:hover {
+        border-color: var(--grey8);
+    }
+
+    .news-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, 
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 255, 255, 0.95)
+        );
+        z-index: -1;
+    }
+
+    .news-scroll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-right: 1.5rem;
+    }
+
+    .news-item {
+        padding: 1.8rem;
+        background: white;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        border-bottom: 1px solid var(--grey12);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .news-item:hover {
+        transform: translateX(5px) translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .news-item-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .news-meta-top {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--grey6);
+    }
+
+    .news-date {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .news-category {
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .news-category::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--grey8);
+    }
+
+    .news-title {
+        font-family: var(--font-title);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--grey2);
+        margin: 0;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+    }
+
+    .news-title a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .news-item:hover .news-title {
+        color: var(--grey1);
+    }
+
+    .news-excerpt {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        color: var(--grey4);
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    .news-meta-bottom {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--grey6);
+    }
+
+    .read-time {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    @media (max-width: 768px) {
+        .news-section {
+            padding: 1.5rem;
+        }
+
+        .news-scroll-container {
+            max-height: none;
+            padding-right: 0;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+        }
+    }
+</style>
