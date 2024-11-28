@@ -1,0 +1,124 @@
+---
+---
+<section class="bento-item whats-happening">
+    <div class="column-header">What's Happening Now?</div>
+    <div class="now-grid">
+        <div class="now-item">
+            <h3>📚 Currently Reading</h3>
+            <p>"Atomic Habits" by James Clear</p>
+            <small>A guide about building good habits and breaking bad ones</small>
+        </div>
+        <div class="now-item">
+            <h3>💻 Current Project</h3>
+            <p>Personal Portfolio Website</p>
+            <small>Building a modern, interactive portfolio with Astro.js</small>
+        </div>
+        <div class="now-item">
+            <h3>🎬 Watching</h3>
+            <p>The Bear (TV Series)</p>
+            <small>A young chef returns home to run his family's restaurant</small>
+        </div>
+        <div class="now-item">
+            <h3>🎮 Playing</h3>
+            <p>Baldur's Gate 3</p>
+            <small>An epic RPG adventure by Larian Studios</small>
+        </div>
+    </div>
+</section>
+
+<style>
+    .whats-happening {
+        grid-column: 3 / span 2;
+        grid-row: 5 / span 2;
+        background: var(--grey3);
+        border-radius: 16px;
+        padding: 2rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .whats-happening::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+        pointer-events: none;
+    }
+
+    .now-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .now-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+    .now-item:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .now-item h3 {
+        font-family: var(--font-title);
+        font-size: 1.1rem;
+        margin: 0 0 0.75rem 0;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .now-item p {
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        margin: 0 0 0.5rem 0;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .now-item small {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.4;
+    }
+
+    @media (max-width: 1200px) {
+        .whats-happening {
+            grid-column: span 2;
+            grid-row: auto;
+        }
+
+        .now-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .whats-happening {
+            grid-column: 1;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .now-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .now-item {
+            padding: 1.25rem;
+        }
+    }
+</style>
